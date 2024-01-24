@@ -1,0 +1,152 @@
+---
+title: "Velt Recorder Tool"
+---
+
+
+<Tabs>
+
+<Tab title="React / Next.js">
+
+
+<Steps>
+<Step title="Recording Types">
+
+Sets the `VeltRecorderTool` recording mode.
+
+`Default: 'audio'`
+
+The `VeltRecorderTool` can be configured to record a user's audio, video or screen.
+
+To set the configuration mode, set the `type` attribute to one of the following:
+ - all
+ - audio 
+ - video
+ - screen
+
+```js
+<VeltRecorderTool type='all' />
+<VeltRecorderTool type='audio' />
+<VeltRecorderTool type='video' />
+<VeltRecorderTool type='screen' />
+```
+
+</Step>
+
+<Step title="Recorder Panel Id">
+
+Sets the `panelId` that the Recording will be played on.
+
+You must also set the `VeltRecorderPlayer` `recorderId` to the same value as `panelId` for the recording to show up on it.
+
+```js
+<VeltRecorderTool panelId="YOUR_PANEL_ID" />
+<VeltRecorderPlayer recorderId="YOUR_PANEL_ID"/>
+```
+
+</Step>
+
+<Step title="Button Label">
+
+Sets a custom label for the `VeltRecorderTool`.
+
+```js
+<VeltRecorderTool buttonLabel="Your Label Text" />
+```
+
+</Step>
+
+</Steps>
+
+</Tab>
+
+<Tab title="HTML">
+
+
+<Steps>
+<Step title="Recording Types">
+
+Sets the `<velt-recorder-tool>` recording mode.
+
+`Default: 'audio'`
+
+The `<velt-recorder-tool>` can be configured to record a user's audio, video or screen.
+
+To set the configuration mode, set the `type` attribute to one of the following:
+ - all
+ - audio 
+ - video
+ - screen
+
+```js
+<velt-recorder-tool type='all'></velt-recorder-tool>
+<velt-recorder-tool type='audio'></velt-recorder-tool>
+<velt-recorder-tool type='video'></velt-recorder-tool>
+<velt-recorder-tool type='screen'></velt-recorder-tool>
+```
+
+</Step>
+
+<Step title="Recorder Panel Id">
+
+Sets the `panelId` that the Recording will be played on.
+
+You must also set the `<velt-recorder-player>` `recorderId` to the same value as `panelId` for the recording to show up on it.
+
+```js
+<velt-recorder-tool panelId="YOUR_PANEL_ID"></velt-recorder-tool>
+<velt-recorder-player recorderId="YOUR_PANEL_ID"></velt-recorder-player>
+```
+
+</Step>
+
+<Step title="Button Label">
+
+Sets a custom label for the `<velt-recorder-tool>`.
+
+```js
+<velt-recorder-tool buttonLabel="Your Label Text"></velt-recorder-tool>
+```
+
+</Step>
+
+</Steps>
+
+</Tab>
+
+</Tabs>
+
+<RequestExample>
+
+```jsx React / Next.js
+import { VeltRecorderTool, VeltRecorderPlayer} from '@veltdev/react'
+
+const SomeComponent = () => {
+    return (
+        <div>
+            <VeltRecorderTool type='all' />
+            <VeltRecorderTool type='audio' />
+            <VeltRecorderTool type='video' />
+            <VeltRecorderTool type='screen' />
+            <VeltRecorderTool panelId="YOUR_PANEL_ID" />
+            <VeltRecorderPlayer recorderId="YOUR_PANEL_ID"/>
+            <VeltRecorderTool buttonLabel='Your Label' />
+        </div>   
+    )
+}
+export default SomeComponent;
+```
+
+
+```html HTML
+<body>
+    <velt-recorder-tool type='all'></velt-recorder-tool>
+    <velt-recorder-tool type='audio'></velt-recorder-tool>
+    <velt-recorder-tool type='video'></velt-recorder-tool>
+    <velt-recorder-tool type='screen'></velt-recorder-tool>
+    <velt-recorder-tool panelId="YOUR_PANEL_ID"></velt-recorder-tool>
+    <velt-recorder-player recorderId="YOUR_PANEL_ID"></velt-recorder-player>
+    <velt-recorder-tool buttonLabel='Your Label'></velt-recorder-tool>
+</body>   
+```
+
+</RequestExample>

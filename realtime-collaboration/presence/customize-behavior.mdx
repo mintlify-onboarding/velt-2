@@ -1,0 +1,218 @@
+---
+title: "Customize Behavior"
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+<Tabs>
+  <Tab title="React / Next.js">
+
+<Steps>
+
+<Step title="Set inactivity time">
+Set the time it takes for a `User` to go inactive in milliseconds.
+
+`Default: 300000ms (5 min)`
+
+```js
+<VeltPresence inactivityTime={30000} />
+```
+
+By default we mark a `User` as inactive if they do not take any action on the document within a 5 mins timeframe.
+
+If they unfocus the tab, we mark them inactive immediately.
+
+</Step>
+
+<Step title="Add Presence to a Location">
+Show  `Presence` on a `Location`.
+
+Set the `location` attribute on the `Presence` element. When there are `Users` at that location, their avatars will show in this `Presence` element.
+
+```js
+<VeltPresence location={{page: 1}}/>
+```
+
+Eg: For a Presentation tool, you can add `Presence` component at the main `document` level and add another `Presence` component on the slide thumbnails. This will render avatars at both presentation level & slide thumbnail level. For slide thumbnails, it will only show `Users` active on that slide.
+
+</Step>
+
+<Step title="Set max users">
+Set how many `Presence` avatars to display at a time.
+
+You can set this via the `maxUsers` attribute. Any extra avatars will be hidden and shown in an avatar which indicates the number of extra `Users`.
+
+```js
+<VeltPresence maxUsers={3} />
+```
+</Step>
+
+
+<Step title="Enable Follow Me Mode">
+To enable `Follow Me` Mode, set the `flockMode` attribute to `true`.
+
+```js
+<VeltPresence flockMode={true} />
+```
+
+This will enable `Follow Me mode` as an option for your `Users` globally, wherever Presence` is shown.
+`
+To start the shared flock session, click on a `User's` avatar to start following them.
+
+Learn more about it in the [Flock Mode feature section](/realtime-collaboration/flock-mode/overview).
+
+</Step>
+
+
+<Step title="Subscribe to changes in User Presence">
+Whenever the `Presence` for any `User` changes, we emit this event with the updated list of `Users` currently online on this document.
+
+```js
+<VeltPresence onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)} />
+```
+
+</Step>
+
+
+</Steps>
+
+
+
+
+
+
+ 
+
+  </Tab>
+
+    <Tab title="HTML">
+
+<Steps>
+
+<Step title="Set inactivity time">
+Set the time it takes for a `User` to go inactive.
+
+```html
+<velt-presence inactivity-time="30000"></velt-presence>
+```
+
+By default a `User` will go inactive after 5 minutes. If they unfocus the tab, then they will immediately go inactive.
+
+</Step>
+
+<Step title="Add Presence to child documents">
+Show `Presence` on child documents.
+
+Set the `Location` attribute on the `Presence` element. When there are `Users` at that location, their avatars will show in this Presence element.
+
+```html
+<velt-presence location='{"page": 1}'></velt-presence>
+```
+
+</Step>
+
+<Step title="Set max users">
+Max users determines how many Presence avatars to display at a time.
+
+You can set this via the max-users attribute. Any extra avatars will be hidden and shown in an avatar which indicates the number of extra `Users`.
+
+```html
+<velt-presence max-users="3"></velt-presence>
+```
+</Step>
+
+<Step title="Enable Follow Me Mode">
+To enable `Follow Me Mode`, set the `flock-mode` attribute to `true`.
+
+```html
+<velt-presence flock-mode="true"></velt-presence>
+```
+
+This will enable `Follow Me mode` as an option for your `Users` globally, wherever Presence is shown.
+
+To start the shared `Follow Me` session, click on a `User's `avatar to start following them.
+
+Learn more about it in the [Flock Mode feature section](/realtime-collaboration/flock-mode/overview).
+</Step>
+
+<Step title="Subscribe to changes in User Presence">
+Whenever the `Presence` for any `User `changes, we emit the `onPresenceUserChange` event with the updated list of `Users` currently online on this document.
+
+
+```js
+<script>
+if(Velt){
+  const presenceElement = client.getPresenceElement();
+  presenceElement.addEventListener('onPresenceUserChange', (event) => {
+    console.log("onPresenceUserChange", event.detail);
+  });
+}
+</script>
+```
+
+</Step>
+
+
+</Steps>
+
+
+
+
+
+
+
+  </Tab>
+</Tabs>
+
+<RequestExample>
+
+```js React / Next.js
+import { VeltPresence } from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <div className="toolbar">
+      <VeltPresence
+        inactivityTime={30000} {/* 1) Set inactivity time */}
+        location={{page: 1}} {/* 2) Add Presence to a Location */}
+        maxUsers={3} {/* 3) Set max users */}
+        flockMode={true} {/* 4) Enable Flock Mode */}
+        onPresenceUserChange={(presenceUsers) => yourMethod(presenceUsers)} {/* 5) Subscribe to changes in User Presence */}
+      />
+    </div>
+  );
+}
+```
+
+
+```html HTML
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Presence documentation</title>
+    <script>
+    // 5) Subscribe to changes in User Presence
+    if(Velt){
+      const presenceElement = client.getPresenceElement();
+      presenceElement.addEventListener('onPresenceUserChange', (event) => {
+        console.log("onPresenceUserChange", event?.detail);
+      });
+    }
+    </script>
+  </head>
+  <body>
+    <div class="toolbar">
+      <velt-presence
+        inactivity-time="30000" <!-- 1) Set inactivity time -->
+        location='{"page": 1}' <!-- 2) Add Presence to a Location -->
+        max-users="3" <!-- 3) Set max users -->
+        flock-mode='true' <!-- 4) Enable Flock Mode -->
+      ></velt-presence> 
+    </div>
+  </body>
+</html>
+```
+
+</RequestExample>

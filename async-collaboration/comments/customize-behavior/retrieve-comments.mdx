@@ -1,0 +1,179 @@
+---
+title: "Retrieve Comments"
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+<Tabs>
+<Tab title="React / Next.js">
+
+<Steps titleSize="h2">
+
+<Step title="To retrieve comments in the frontend">
+
+To retrieve all comments in the frontend, call getCommentElement() on the Velt client and then `subscribe()` to `getAllCommentAnnotations()` and pass in a callback function.
+
+Whenever there is a change to the comments structure, the callback function will be triggered and will contain all current comments in an array.
+
+```js
+if (client) {
+  const commentElement = client.getCommentElement();
+  commentElement.getAllCommentAnnotations().subscribe((comments) => {
+    // Do something with comments
+  });
+}
+```
+
+By default, `getAllCommentAnnotations` will return data for the current `documentId` and `location`.
+
+If you pass in a `documentId` to `getAllCommentAnnotations` as an argument, it will return all comments in the given `documentId`.
+
+If you pass in a `documentId` as the first argument and a `location` object as the second argument, it will return all comments in the given `documentId` and `location`.
+
+
+```js
+if (client) {
+  const commentElement = client.getCommentElement();
+  commentElement.getAllCommentAnnotations('my-document-id', { id:'my-location-id',locationName:"MainVideoPlayer",timestamp:120}).subscribe((comments) => {
+    // Get comments with my-document-id and my-locaiton-id
+  });
+}
+```
+
+</Step>
+
+
+
+<Step title="To retrieve comments in the backend">
+
+For this you should use our Webhook service. Let's say you want to be notified whenever a comment is added or updated, you can provide us an endpoint and we will send the comment data to that end point as and when there is an update. You can then process it further. Note that you cannot retrieve historical comments using this.
+
+You can enable and configure webhook in your Velt Console as shown below. After you enable this, you need to provide an endpoint url. We will make a post request to that endpoint to send the comment data.
+
+To read more about how to configure webhooks, check out the [webhooks documentation](/webhooks/overview).
+
+![](https://files.readme.io/0ac5e4a-image.png)
+</Step>
+
+
+</Steps>
+
+
+</Tab>
+
+<Tab title="HTML">
+
+<Steps titleSize="h2">
+
+<Step title="To retrieve comments in the frontend">
+
+To retrieve all comments in the frontend, call getCommentElement() on the Velt client and then `subscribe()` to `getAllCommentAnnotations()` and pass in a callback function.
+
+Whenever there is a change to the comments structure, the callback function will be triggered and will contain all current comments in an array.
+
+```js
+if (Velt) {
+  const commentElement = Velt.getCommentElement();
+  commentElement.getAllCommentAnnotations().subscribe((comments) => {
+    // Do something with comments
+  });
+}
+```
+
+By default, `getAllCommentAnnotations` will return data for the current `documentId` and `location`.
+
+If you pass in a `documentId` to `getAllCommentAnnotations` as an argument, it will return all comments in the given `documentId`.
+
+If you pass in a `documentId` as the first argument and a `location` object as the second argument, it will return all comments in the given `documentId` and `location`.
+
+
+```js
+if (Velt) {
+  const commentElement = Velt.getCommentElement();
+  commentElement.getAllCommentAnnotations('my-document-id', { id:'my-location-id',locationName:"MainVideoPlayer",timestamp:120}).subscribe((comments) => {
+    // Get comments with my-document-id and my-locaiton-id
+  });
+}
+```
+
+
+</Step>
+
+
+
+<Step title="To retrieve comments in the backend">
+
+For this you should use our Webhook service. Let's say you want to be notified whenever a comment is added or updated, you can provide us an endpoint and we will send the comment data to that end point as and when there is an update. You can then process it further. Note that you cannot retrieve historical comments using this.
+
+You can enable and configure webhook in your Velt Console as shown below. After you enable this, you need to provide an endpoint url. We will make a post request to that endpoint to send the comment data.
+
+To read more about how to configure webhooks, check out the [webhooks documentation](/webhooks/overview).
+
+![](https://files.readme.io/0ac5e4a-image.png)
+</Step>
+
+
+</Steps>
+
+
+</Tab>
+
+</Tabs>
+
+<RequestExample>
+
+```jsx React / Next.js
+
+import { VeltComments, useVeltClient } from '@veltdev/react';
+
+import { useEffect } from 'react'
+
+export default function YourDocument() {
+  const { client } = useVeltClient();  
+
+  useEffect(()=>{
+    if(client){
+      const commentElement = client.getCommentElement();
+
+      // 1
+      commentElement.getAllCommentAnnotations().subscribe((comments) => {
+        // Do something with comments
+      });
+
+      commentElement.getAllCommentAnnotations('my-document-id', { id:'my-location-id',locationName:"MainVideoPlayer",timestamp:120}).subscribe((comments) => {
+        // Get comments with my-document-id and my-locaiton-id
+      });
+    }
+    
+
+  })
+
+  return (
+    <div>
+        <VeltComments />
+    </div>
+```
+
+
+
+```html HTML
+<body>
+  <velt-comments></velt-comments>
+<script>
+  if(Velt){
+    const commentElement = Velt.getCommentElement();
+
+    // 1
+    commentElement.getAllCommentAnnotations().subscribe((comments) => {
+      // Do something with comments
+    });
+
+    commentElement.getAllCommentAnnotations('my-document-id', { id:'my-location-id',locationName:"MainVideoPlayer",timestamp:120}).subscribe((comments) => {
+    // Get comments with my-document-id and my-locaiton-id
+  });
+  }
+</script>
+</body>
+```
+</RequestExample>

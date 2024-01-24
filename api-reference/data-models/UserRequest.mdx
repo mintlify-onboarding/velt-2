@@ -1,0 +1,19 @@
+---
+title: UserRequest
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+## `UserRequest` Class Properties
+
+| Property      | Type                 | Optional | Description                             |
+|---------------|----------------------|----------|-----------------------------------------|
+| `id`          | `string`             | Yes      | Unique identifier of the feedback.      |
+| `apiKey`      | `string` \| `null`   | Yes      | API key of the client.                  |
+| `emailId`     | `string`             | Yes      | Email address of the feedback provider. |
+| `message`     | `string`             | Yes      | Content of the user's feedback message. |
+| `from`        | `User` \| `null`     | Yes      | User who submitted the feedback.        |
+| `lastUpdated` | `any`                | Yes      | Timestamp of when the feedback was last updated. |
+| `metadata`    | `DocumentMetadata` \| `null` | Yes | Metadata associated with the document.  |
+| `pageInfo`    | `PageInfo`           | Yes      | Information about the user's current page. |

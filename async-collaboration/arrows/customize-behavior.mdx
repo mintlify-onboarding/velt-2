@@ -1,0 +1,144 @@
+---
+title: "Customize Behavior"
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+
+
+<Tabs>
+
+
+<Tab title="React / Next.js">
+
+
+<Steps>
+
+
+
+<Step title="Getting the Arrow Element">
+
+To get access to the Arrow Element APIs, you will first need to get the Arrow Element object from the client.
+
+```jsx
+const arrowElement = client.getArrowElement();
+```
+
+</Step>
+
+
+<Step title="Set which elements Arrows can be added to">
+
+You can use the `allowedElementIds()` property to set an allowed list of elements the `Arrows` feature can be added to.
+
+
+```jsx
+<VeltArrows allowedElementIds={['ALLOWED_ID_1', 'ALLOWED_ID_2']} />
+```
+
+API Methods:
+
+You can use the `arrowElement.allowedElementIds()` method to set an allowed list of elements the `Arrows` feature can be added to.
+
+```jsx
+arrowElement.allowedElementIds(['ALLOWED_ID_1', 'ALLOWED_ID_2']);
+```
+
+</Step>
+
+
+</Steps>
+
+
+</Tab>
+
+<Tab title="HTML">
+
+<Steps>
+<Step title="Getting the Arrow Element">
+
+To get access to the Arrow Element APIs, you will first need to get the Arrow Element object from the Velt client.
+
+```jsx
+const arrowElement = Velt.getArrowElement();
+```
+
+</Step>
+
+
+<Step title="Set which elements Arrows can be added to">
+
+You can use the `allowedElementIds()` property to set an allowed list of elements the `Arrows` feature can be added to.
+
+
+```jsx
+<velt-arrows allowedElementIds="['ALLOWED_ID_1', 'ALLOWED_ID_2']"></velt-arrows>
+```
+
+
+API Methods:
+
+You can use the `arrowElement.allowedElementIds()` method to set an allowed list of elements the `Arrows` feature can be added to.
+
+```jsx
+arrowElement.allowedElementIds(['ALLOWED_ID_1', 'ALLOWED_ID_2']);
+```
+
+</Step>
+</Steps>
+
+</Tab>
+
+
+
+</Tabs>
+
+<RequestExample>
+
+```jsx React / Next.js
+
+import { VeltArrows, VeltArrowTool, useVeltClient } from '@veltdev/react';
+
+import { useEffect } from 'react'
+
+export default function YourDocument() {
+
+  const { client } = useVeltClient();
+
+  useEffect(()=>{
+    if(client){
+      const arrowElement = client.getArrowElement();
+      arrowElement.allowedElementIds(['ALLOWED_ID_1', 'ALLOWED_ID_2']);
+    }
+  })
+
+  return (
+    <div>
+      <VeltArrows allowedElementIds={['ALLOWED_ID_1', 'ALLOWED_ID_2']}>
+      <VeltArrowTool/>
+    </div>
+  )
+}
+```
+
+
+```html HTML
+<body>
+<velt-arrows 
+  allowedElementIds="['ALLOWED_ID_1', 'ALLOWED_ID_2']"
+</velt-arrows>
+
+<velt-arrow-tool></velt-arrow-tool>
+
+<script>
+if(Velt){
+    const arrowElement = Velt.getArrowElement();
+    arrowElement.allowedElementIds(['ALLOWED_ID_1', 'ALLOWED_ID_2']);
+}
+</script>
+</body>
+
+```
+
+</RequestExample>

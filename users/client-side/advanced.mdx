@@ -1,0 +1,125 @@
+---
+title: "Create or Replace Contact List"
+---
+{/* <script>var SUPERFsLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+<Tabs>
+<Tab title="React \ Next.js">
+
+
+
+## Create Contact List
+
+To create a user's contact list for the first time, use the `client.identify()` method. Additional calls to the method will merge new users to the contact list.
+
+```jsx
+client.identify(yourLoggedInUser).then((res) => {
+  // User auth successful with Velt
+}).catch((err) => {
+  // Failed to authenticate user with Velt
+});
+```
+
+
+## Replace Contact List
+
+To replace a user's contact list, use the `client.identify()` method and pass in `{replaceContacts: true}` as the second parameter. This will completely replace the users contact list.
+
+```jsx
+client.identify(yourLoggedInUser, {
+    replaceContacts: true
+}).then((res) => {
+  // User auth successful with Velt
+}).catch((err) => {
+  // Failed to authenticate user with Velt
+});
+```
+
+
+
+</Tab>
+
+<Tab title="HTML">
+
+## Create Contact List
+
+To create a user's contact list for the first time, use the `client.identify()` method. Additional calls to the method will merge new users to the contact list.
+
+```jsx
+Velt.identify(yourLoggedInUser).then((res) => {
+  // User auth successful with Velt
+}).catch((err) => {
+  // Failed to authenticate user with Velt
+});
+```
+
+
+## Replace Contact List
+
+To replace a user's contact list, use the `client.identify()` method and pass in `{replaceContacts: true}` as the second parameter. This will completely replace the users contact list.
+
+```jsx
+Velt.identify(yourLoggedInUser, {
+    replaceContacts: true
+}).then((res) => {
+  // User auth successful with Velt
+}).catch((err) => {
+  // Failed to authenticate user with Velt
+});
+```
+
+
+</Tab>
+
+</Tabs>
+
+
+<RequestExample>
+
+```jsx React / Next.js
+import { useVeltClient } from '@veltdev/react';
+import { useEffect} from '/react';
+
+
+function YourComponent() {
+
+    const { client } = useVeltClient();
+
+    useEffect(() => {
+        if(client){
+            //Reset Contact List
+            client.identify(yourLoggedInUser, {
+                replaceContacts: true
+            }).then((res) => {
+            // User auth successful with Velt
+            }).catch((err) => {
+            // Failed to authenticate user with Velt
+            });
+        }
+    },[client]);
+
+  return (
+    <div>
+
+    </div>
+  )
+}
+```
+
+```html HTML
+<script>
+if(Velt){
+    Velt.identify(yourLoggedInUser, {
+        replaceContacts: true
+    }).then((res) => {
+    // User auth successful with Velt
+    }).catch((err) => {
+    // Failed to authenticate user with Velt
+    });
+}
+</script>
+```
+
+</RequestExample>

@@ -1,0 +1,60 @@
+// @ts-nocheck
+import { Observable } from "rxjs";
+import { CursorUser } from "../data/cursor-user.data.model";
+export declare class CursorElement {
+    /**
+     * Subscribe to cursors of all online users who are either active or inactive on the current document.
+     *
+     * Returns Observable<CursorUser[] | null>.
+     * 
+     * @deprecated Use getOnlineUsersOnCurrentDocument instead.
+     */
+    getLiveCursorsOnCurrentDocument: () => Observable<CursorUser[] | null>;
+
+    /**
+     * Subscribe to cursors of all online users who are either active or inactive on the current document.
+     *
+     * Returns Observable<CursorUser[] | null>.
+     */
+     getOnlineUsersOnCurrentDocument: () => Observable<CursorUser[] | null>;
+
+    /**
+     * To set inactivity time (Default value is 2 minutes)
+     * @param time inactivity time in milliseconds
+     */
+    setInactivityTime: (time: number) => void;
+
+    /**
+     * To allow cursors in specific elements only
+     * @param elementIds Element ids to be allowed to show cursor on it
+     */
+    allowedElementIds: (elementIds: string[]) => any;
+    constructor();
+    /**
+     * Subscribe to cursors of all online users who are either active or inactive on the current document.
+     *
+     * Returns Observable<CursorUser[] | null>.
+     * 
+     * @deprecated Use getOnlineUsersOnCurrentDocument instead.
+     */
+    private _getLiveCursorsOnCurrentDocument;
+
+    /**
+     * Subscribe to cursors of all online users who are either active or inactive on the current document.
+     *
+     * Returns Observable<CursorUser[] | null>.
+     */
+    private _getOnlineUsersOnCurrentDocument;
+
+    /**
+     * To set inactivity time (Default value is 2 minutes)
+     * @param time inactivity time in milliseconds
+     */
+    private _setInactivityTime;
+
+    /**
+     * To allow cursors in specific elements only
+     * @param elementIds Element ids to be allowed to show cursor on it
+     */
+    private _allowedElementIds;
+}

@@ -1,0 +1,101 @@
+---
+title: "Video Player Setup"
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+
+<Tabs>
+
+<Tab title="React / Next.js">
+
+<Steps>
+
+<Step title="Import VeltVideoPlayer component">
+Import the `VeltVideoPlayer` component.
+
+```jsx
+import { VeltVideoPlayer} from '@veltdev/react'
+```
+</Step>
+
+<Step title="Add src to VeltVideoPlayer">
+Add your video src URL to the `src` attribute of the `VeltVideoPlayer` component.
+
+```jsx
+<VeltVideoPlayer src={"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"} />
+```
+
+</Step>
+
+</Steps>
+
+
+
+
+
+
+</Tab>
+
+
+<Tab title="HTML">
+
+Add your video src URL to the `src` attribute of the `<velt-video-player>` component.
+
+
+```html
+<!-- dark-mode="false" - to disable dark mode -->
+<!-- sync="true" - to enable sync mode -->
+<velt-video-player 
+src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
+dark-mode="false"
+sync="true"
+>
+</velt-video-player>
+
+```
+
+</Tab>
+
+</Tabs>
+
+<RequestExample>
+
+
+```jsx React / Next.js
+import {
+  VeltVideoPlayer
+} from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <div>
+      <VeltVideoPlayer src={"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"} />
+    </div>
+  );
+}
+```
+
+```html HTML
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Video Player documentation</title>
+  </head>
+  <body>
+    <!-- dark-mode="false" - to disable dark mode -->
+    <!-- sync="true" - to enable sync mode -->
+    <velt-video-player 
+        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
+        dark-mode="false"
+        sync="true"
+    >
+    </velt-video-player>
+  </body>
+</html>
+
+```
+
+</RequestExample>

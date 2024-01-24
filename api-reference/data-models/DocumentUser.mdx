@@ -1,0 +1,19 @@
+---
+title: DocumentUser
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+## `DocumentUser` Class Properties
+
+| Property      | Type            | Optional | Description                                                     |
+|---------------|-----------------|----------|-----------------------------------------------------------------|
+| `id`            | string          | No       | The unique identifier for the user, typically their email ID.   |
+| `user`          | `UserContact`     | No       | Object containing the user's contact details.                   |
+| `role`          | `UserRole `       | No       | Enum or object defining the user's role within the document.    |
+| `invitedBy`     | `User`            | Yes      | The user who invited the current user to the document.          |
+| `invitedDate`   | any             | Yes      | The date when the current user was invited to the document.     |
+| `updatedBy`     | `User`            | Yes      | The user who last updated this user's document-related info.    |
+| `updatedDate`   | any             | Yes      | The date when the user's document-related information was last updated. |
+

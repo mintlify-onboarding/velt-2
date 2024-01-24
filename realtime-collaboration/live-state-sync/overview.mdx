@@ -1,0 +1,210 @@
+<Warning>These Features are currently in beta and may be subject to change.</Warning>
+
+<Tabs>
+    <Tab title="React / Next.js">
+
+# Live State Sync
+
+With `Live State Sync`, you can create a shared data object that persists and syncs across all clients live on a given document.
+
+
+
+<Steps>
+
+<Step title="Set or Update a shared live data object">
+Sets or updates a custom shared data object that will be synced across all clients live on the current document.
+Pass in a unique ID and the data object you want to sync. If the object already exists with that ID, then it will be updated.
+
+Input params:
+- `liveStateDataId`: `string`;
+
+- `liveStateData`: `any`;
+
+```jsx
+const liveStateDataId = 'uniqueId';
+const liveStateData = { 'key': 'value' }; // any type of data
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
+```
+
+</Step>
+
+<Step title="Get a shared live data object">
+Subscribes to an existing shared live data object. Pass in the unique ID that you had used to set the data.
+
+Input params:
+
+- `liveStateDataId`: `string`; (optional)
+
+```jsx
+const liveStateDataId = 'uniqueId';
+const liveStateSyncElement = client.getLiveStateSyncElement();
+liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
+		// your logic here...
+});
+```
+
+</Step>
+
+<Step title="useLiveState() Hook">
+
+The `useLiveState()` hook can be used to sync data realtime for specific state variables in your code.
+
+
+Hook syntax:
+
+```tsx
+import {useLiveState} from '@veltdev/react'
+```
+
+```tsx
+const [value, setValue] = useLiveState<TYPE_OF_VALUE>(UNIQUE_ID, INITIAL_VALUE, SYNC_DURATION);
+```
+
+- TYPE_OF_VALUE -> optional, only applicable for typescript
+- UNIQUE_ID -> unique id in string to be synced across the screens
+- INITIAL_VALUE -> initial value of the state
+- SYNC_DURATION -> duration in milliseconds to sync realtime (optional, default value 50ms)
+- value -> current state value (similar to useState hook)
+- setValue -> function to be called to set next value (similar to useState hook)
+
+Example:
+
+```tsx
+import { useLiveState } from "@veltdev/react";
+
+export function MyReactComponent() {
+  const [counter, setCounter] = useLiveState < number > ("counter", 0);
+
+  return (
+    <div>
+      <button onClick={() => setCounter((counter || 0) - 1)}>-</button>
+      <span>Counter: {counter}</span>
+      <button onClick={() => setCounter((counter || 0) + 1)}>+</button>
+    </div>
+  );
+}
+```
+
+</Step>
+
+
+
+
+
+
+
+</Steps>
+
+
+    </Tab>
+
+   
+
+    <Tab title="HTML">
+
+# Live State Sync
+
+With `Live State Sync`, you can create a shared data object that persists and syncs across all clients live on a given document.
+
+
+
+<Steps>
+
+<Step title="Set or Update a shared live data object">
+Sets or updates a custom shared data object that will be synced across all clients live on the current document.
+Pass in a unique ID and the data object you want to sync. If the object already exists with that ID, then it will be updated.
+
+Input params:
+- `liveStateDataId`: `string`;
+
+- `liveStateData`: `any`;
+
+```jsx
+const liveStateDataId = 'uniqueId';
+const liveStateData = { 'key': 'value' }; // any type of data
+const liveStateSyncElement = Velt.getLiveStateSyncElement();
+liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
+```
+
+</Step>
+
+<Step title="Get a shared live data object">
+Subscribes to an existing shared live data object. Pass in the unique ID that you had used to set the data.
+
+Input params:
+
+- `liveStateDataId`: `string`; (optional)
+
+```jsx
+const liveStateDataId = 'uniqueId';
+const liveStateSyncElement = Velt.getLiveStateSyncElement();
+liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
+		// your logic here...
+});
+```
+
+</Step>
+
+
+</Steps>
+
+    </Tab>
+
+</Tabs>
+
+
+<RequestExample>
+
+```jsx React / Next.js
+import { useVeltClient, useEffect } from '@veltdev/react';
+
+export default function YourDocument() {
+  const { client } = useVeltClient();
+
+  useEffect(()=>{
+    if(client){
+        const liveStateDataId = "uniqueId";
+        const liveStateData = { "key": "value" }; // any type of data
+        const liveStateSyncElement = client.getLiveStateSyncElement();
+
+        //Set Live State Data
+        liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
+
+
+        //Subscribe to Live State Data
+        liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
+        // your logic here...
+        });
+    }
+  })
+
+
+  return (
+    <div>
+      ...
+    </div>
+  );
+}
+
+```
+
+```jsx HTML
+
+if(Velt){
+    const liveStateDataId = "uniqueId";
+    const liveStateData = { "key": "value" }; // any type of data
+    const liveStateSyncElement = Velt.getLiveStateSyncElement();
+
+    //Set Live State Data
+    liveStateSyncElement.setLiveStateData(liveStateDataId, liveStateData);
+
+   
+    //Subscribe to Live State Data
+    liveStateSyncElement.getLiveStateData(liveStateDataId).subscribe((data) => {
+            // your logic here...
+    });
+}
+```
+
+</RequestExample>

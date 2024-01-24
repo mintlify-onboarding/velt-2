@@ -1,0 +1,93 @@
+---
+title: "Delete Data by Location API"
+description: "How to Delete all Data by Location via an API call"
+api: "POST https://deletedatabylocation.api.velt.dev/"
+---
+
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+## Deleting Data by Location
+
+You can delete all data at a specific `location` using an API call. Data refers to comments, recordings, or any other feature data relating to that `location`.
+
+
+To dete all data by location via the API, send a POST request to `https://deletedatabylocation.api.velt.dev/` with the following body data.
+
+Body:
+
+```JSON
+{
+    "data": {
+        "apiKey": "YOUR_API_KEY",
+        "authToken": "YOUR_AUTH_TOKEN",
+        "documentId": "YOUR_DOCUMENT_ID",
+        "location": YOUR_LOCATION_OBJECT_HERE
+    }
+}
+```
+
+<Info>
+Not sure where find your Auth Token? You can follow [these steps](/security/auth-tokens) to generate your Auth Token.
+</Info>
+
+## Example
+
+For example, if you want to delete all the data related to the `location` object with the id of "scene_1" shown below, then you will have to pass below data in body of the post method:
+
+```jsx
+{
+    "data": {
+        "apiKey": "YOUR_API_KEY",
+        "authToken": "YOUR_AUTH_TOKEN",
+        "documentId": "YOUR_DOCUMENT_ID",
+        "location": {
+            "id": "scene_1",
+            "locationName": "White scene"
+        }
+    }
+}
+```
+
+
+
+
+<Expandable title="result" defaultOpen={true}>
+
+
+<ResponseField name="message" type="string">
+Status message for the response
+</ResponseField>
+
+<ResponseField name="data" type="object">
+Object that contains status of the result
+</ResponseField>
+
+<Expandable title="data" defaultOpen={true}>
+
+
+<ResponseField name="status" type="boolean">
+Shows a status boolean whether the API call succeeded or not
+</ResponseField>
+
+
+</Expandable>
+
+</Expandable>
+
+
+
+
+<ResponseExample>
+```js
+{
+    "result": {
+        "message": "Data deleted successfully.",
+        "data": {
+            "status": true
+        }
+    }
+}
+```
+</ResponseExample>

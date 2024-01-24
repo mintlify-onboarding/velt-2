@@ -1,0 +1,29 @@
+---
+title: LiveStateData
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+## `LiveStateData` Class
+
+| Property         | Type                           | Optional | Description                                                                                          |
+|------------------|--------------------------------|----------|------------------------------------------------------------------------------------------------------|
+| `id               | string                         | No       | A unique identifier likely used for quick reference and indexing. It's an MD5 hash of `liveStateDataId`. |
+| `liveStateDataId`  | string                         | No       | A unique identifier for the state data being synced.                                                 |
+| `data`             | string \| number \| boolean \| JSON | No       | The actual data you want to synchronize across clients.                                               |
+| `lastUpdated`      | any                            | No       | A timestamp or similar data indicating the last time the state data was updated.                     |
+| `updatedBy`        | `User`                           | No       | The user who last updated the state data.                                                           |
+| `tabId`            | string \| null                 | Yes      | An identifier that could be used to associate the state data with a specific tab or instance.        |
+
+## `SingleEditorLiveStateData` Class
+
+| Property               | Type                     | Optional | Description                                                                                                                                                   |
+|------------------------|--------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `editor`                 | `User` \| null             | Yes      | References the current editor if the document or state is being edited by a single user at a time.                                                             |
+| `requestEditorAccess`    | object \| null           | Yes      | An object representing a request from a user to gain editing access, with details about the request.                                                           |
+| └─ `user`                | `User`                     | No       | The user requesting editor access.                                                                                                                            |
+| └─ `requestedAt`        | any                      | No       | A timestamp or similar data when the access was requested.                                                                                                    |
+| └─ `status`              | 'pending' \| 'accepted' \| 'rejected' | No       | The current status of the editor access request.                                                                                                               |
+| └─ `waitTime`            | number                   | No       | A numerical value, possibly indicating how long the user has waited or should wait for a response to their access request.                                     |
+

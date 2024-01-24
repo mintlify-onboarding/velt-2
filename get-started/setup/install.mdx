@@ -1,0 +1,123 @@
+---
+title: "1. Install"
+description: "Steps to integrate Velt into an existing app"
+
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+<Tabs>
+  <Tab title="React / Next.js">
+
+<Steps titleSize="h2">
+
+<Step title="Install React package">
+npm:
+```bash
+$ npm install @veltdev/react
+```
+
+yarn:
+```bash
+$ yarn add @veltdev/react
+```
+</Step>
+
+<Step title="Install types (optional)">
+
+If you're using TypeScript, you can install the types package.
+
+```bash
+$ npm install --save-dev @veltdev/types
+```
+
+</Step>
+
+
+<Step title="Add the VeltProvider">
+Add the VeltProvider component to the root of your app.
+
+Add your Velt API key.
+
+```js
+import { VeltProvider } from '@veltdev/react';
+```
+
+```js
+<VeltProvider apiKey="YOUR_API_KEY">
+  <YourRootComponent/>
+</VeltProvider>
+```
+</Step>
+
+</Steps>
+
+
+
+
+
+
+
+
+</Tab>
+<Tab title="HTML">
+<Steps titleSize="h2">
+
+<Step title="Import the Velt Script tag">
+
+```html
+<script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.62/velt.js" onload="loadVelt()"></script>
+```
+</Step>
+
+<Step title="Initialize with your API Key">
+Put this in your root app script:
+    ```js
+    async function loadVelt() {
+        await Velt.init("YOUR_VELT_API_KEY");
+    }
+    ```
+</Step>
+
+</Steps>
+
+</Tab>
+</Tabs>
+
+<RequestExample>
+
+```jsx React / Next.js
+import { VeltProvider } from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <VeltProvider apiKey="YOUR_API_KEY">
+      <YourRootComponent/>
+    </VeltProvider>
+  );
+}
+```
+
+
+```html HTML
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Collaboration App</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.11/velt.js" onload="loadVelt()"></script>
+    <script>
+      async function loadVelt() {
+        await Velt.init("YOUR_VELT_API_KEY");
+      }
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>
+```
+
+</RequestExample>

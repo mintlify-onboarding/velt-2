@@ -1,0 +1,463 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Velt",
+  "logo":{
+    "light": "/velt-logo-big-light.png",
+    "dark": "/velt-logo-big.png",
+    "href": "https://docs.velt.dev"
+  },
+  "favicon": "/velt-favi.png",
+  "colors": {
+    "primary": "#272728",
+    "light": "#D5D5D5",
+    "dark": "#000000"
+  },
+  "modeToggle": {
+    "default": "dark"
+  },
+  "topbarCtaButton": {
+    "name": "Get API Key",
+    "url": "https://console.velt.dev/"
+  },
+  "tabs": [
+    {
+      "name": "Examples",
+      "url": "examples"
+    },
+    {
+      "name": "Community",
+      "url": "https://discord.gg/GupvcYH27h"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": [
+        "get-started/overview",
+        "get-started/quickstart",
+        {
+          "group": "Setup",
+          "pages": [
+            "get-started/setup/install",
+            "get-started/setup/authenticate",
+            "get-started/setup/initialize-document",
+            "get-started/setup/advanced"
+          ]
+        }     
+      ]
+    },
+    {
+      "group": "Documents and Locations",
+      "pages": [
+        "documents-and-locations/overview",
+        {
+          "group": "Documents",
+          "pages": [
+            "documents-and-locations/documents/setup"
+          ]
+        },
+        {
+          "group": "Locations",
+          "pages": [
+            "documents-and-locations/locations/setup/setup",
+            "documents-and-locations/locations/setup/multiple-locations",
+            "documents-and-locations/locations/setup/remove-locations",
+            "documents-and-locations/locations/setup/api-update-location",
+            "documents-and-locations/locations/setup/api-delete-data-by-location"            
+          ]
+        }       
+      ]
+    },
+    {
+      "group": "User Contacts List",
+      "pages": [
+        "users/overview",
+        {
+          "group": "Client Side",
+          "pages": [
+            "users/client-side/setup"
+          ]
+        },
+        {
+          "group": "Server Side",
+          "pages": [
+            "users/server-side/api-reset-contact-list"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Realtime Collaboration",
+      "pages": [
+        {
+          "group": "Presence",
+          "pages": [
+            "realtime-collaboration/presence/overview",
+            "realtime-collaboration/presence/setup",
+            "realtime-collaboration/presence/customize-behavior",
+            {
+              "group": "Customize UI",
+              "pages": [
+                "realtime-collaboration/presence/customize-ui/parts",
+                "realtime-collaboration/presence/customize-ui/variables",
+                "realtime-collaboration/presence/customize-ui/create-your-own-ui"
+
+              ]
+            }
+
+            
+          ]
+        },
+        {
+          "group": "Cursors",
+          "pages": [
+            "realtime-collaboration/cursors/overview",
+            "realtime-collaboration/cursors/setup",
+            "realtime-collaboration/cursors/customize-behavior",
+            {
+              "group": "Customize UI",
+              "pages": [
+                "realtime-collaboration/cursors/customize-ui/slots",
+                "realtime-collaboration/cursors/customize-ui/parts",
+                "realtime-collaboration/cursors/customize-ui/variables",
+                "realtime-collaboration/cursors/customize-ui/create-your-own-ui"
+
+              ]
+            }
+          ]
+        },
+        {
+          "group": "Follow Me Mode",
+          "pages": [
+            "realtime-collaboration/flock-mode/overview",
+            "realtime-collaboration/flock-mode/setup",
+            "realtime-collaboration/flock-mode/customize-behavior"
+          ]
+        },
+        {
+          "group": "Huddle",
+          "pages": [
+            "realtime-collaboration/huddle/overview",
+            "realtime-collaboration/huddle/setup",
+            "realtime-collaboration/huddle/customize-behavior",
+            {
+              "group": "Customize UI",
+              "pages": [
+                "realtime-collaboration/huddle/customize-ui/parts",
+                "realtime-collaboration/huddle/customize-ui/slots",
+                "realtime-collaboration/huddle/customize-ui/variables"
+              ]
+            }
+          ]
+        },
+        {
+          "group": "Live Selection",
+          "pages": [
+            "realtime-collaboration/live-selection/overview",
+            "realtime-collaboration/live-selection/setup"
+          ]
+        },
+        {
+          "group": "Live State Sync",
+          "pages": [
+            "realtime-collaboration/live-state-sync/overview"
+          ]
+        },
+        {
+          "group": "Single Editor Mode",
+          "pages": [
+            "realtime-collaboration/single-editor-mode/overview",
+            "realtime-collaboration/single-editor-mode/setup"
+          ]
+        },
+        {
+          "group": "Live Co-Editing",
+          "pages": [
+            "live-co-editing/overview"
+          ]
+        },
+        {
+          "group": "Video Player Sync",
+          "pages": [
+            "realtime-collaboration/video-player-sync/overview"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Async Collaboration",
+      "pages": [
+        {
+          "group": "Comments",
+          "pages": [
+            "async-collaboration/comments/overview",
+            {
+              "group": "Setup",
+              "pages": [
+                "async-collaboration/comments/setup/freestyle",
+                "async-collaboration/comments/setup/inbox",
+                "async-collaboration/comments/setup/popover",
+                "async-collaboration/comments/setup/stream",
+                "async-collaboration/comments/setup/text",
+                "async-collaboration/comments/setup/page"
+              ]
+            },
+            {
+              "group": "Customize Behavior",
+              "pages": [
+                "async-collaboration/comments/customize-behavior/action-methods",
+                "async-collaboration/comments/customize-behavior/display-metadata",
+                "async-collaboration/comments/customize-behavior/event-handlers",
+                "async-collaboration/comments/customize-behavior/general-controls",
+                "async-collaboration/comments/customize-behavior/modes",
+                "async-collaboration/comments/customize-behavior/multimedia",
+                "async-collaboration/comments/customize-behavior/retrieve-comments",
+                "async-collaboration/comments/customize-behavior/task-management",
+                "async-collaboration/comments/customize-behavior/ui-controls",
+                "async-collaboration/comments/customize-behavior/visibility-controls",
+                "async-collaboration/comments/customize-behavior/webhooks"
+                
+              ]
+            },
+            {
+              "group": "Customize UI",
+              "pages": [
+                {
+                  "group": "Slots",
+                  "pages": [
+                    "async-collaboration/comments/customize-ui/slots/pin",
+                    "async-collaboration/comments/customize-ui/slots/bubble",
+                    "async-collaboration/comments/customize-ui/slots/tool"
+                  ]
+                },
+                {
+                  "group": "Parts",
+                  "pages": [
+                    "async-collaboration/comments/customize-ui/parts/pin",
+                    "async-collaboration/comments/customize-ui/parts/bubble",
+                    "async-collaboration/comments/customize-ui/parts/tool",
+                    "async-collaboration/comments/customize-ui/parts/dialog"
+                  ]
+                },
+                {
+                  "group": "Variables",
+                  "pages": [
+                    "async-collaboration/comments/customize-ui/variables/overview",
+                    "async-collaboration/comments/customize-ui/variables/pin",
+                    "async-collaboration/comments/customize-ui/variables/bubble",
+                    "async-collaboration/comments/customize-ui/variables/tool"
+                  ]
+                }
+              ]
+            },
+            "webhooks/overview",
+            "notifications/email/overview"
+
+          ]
+        },
+        {
+          "group": "Comments Sidebar",
+          "pages": [
+            "async-collaboration/comments-sidebar/overview",
+            "async-collaboration/comments-sidebar/setup",
+            "async-collaboration/comments-sidebar/customize-behavior",
+            {
+              "group": "Customize UI",
+              "pages": [
+                "async-collaboration/comments-sidebar/customize-ui/embed-mode",
+                "async-collaboration/comments-sidebar/customize-ui/slots"
+              ]
+            }
+          ]
+        },
+        {
+          "group": "Media Player Comments",
+          "pages": [
+            "async-collaboration/video-player-comments/overview",
+            {
+              "group": "Setup",
+              "pages": [
+                "async-collaboration/video-player-comments/setup/video-player-setup",
+                "async-collaboration/video-player-comments/setup/lottie-player-setup"
+                
+              ]
+            }
+          ]
+        },
+        {
+          "group": "System Comments",
+          "pages": [
+            "async-collaboration/system-comments/overview",
+            "async-collaboration/system-comments/setup",
+            "async-collaboration/system-comments/api-add-system-comment",
+            "async-collaboration/system-comments/api-delete-system-comments"
+
+          ]
+        },
+        {
+          "group": "Arrows",
+          "pages": [
+            "async-collaboration/arrows/overview",
+            "async-collaboration/arrows/setup",
+            "async-collaboration/arrows/customize-behavior",
+            {
+              "group": "Customize UI",
+              "pages": [
+                "async-collaboration/arrows/customize-ui/parts",
+                "async-collaboration/arrows/customize-ui/slots",
+                "async-collaboration/arrows/customize-ui/variables",
+                "async-collaboration/arrows/customize-ui/custom-button"
+              ]
+            }
+
+
+            
+          ]
+        },
+        {
+          "group": "Recorder",
+          "pages": [
+            "async-collaboration/recorder/overview",
+            "async-collaboration/recorder/setup",
+            {
+              "group": "Customize Behavior",
+              "pages": [
+                "async-collaboration/recorder/customize-behavior/velt-recorder-tool",
+                "async-collaboration/recorder/customize-behavior/velt-recorder-control-panel",
+                "async-collaboration/recorder/customize-behavior/velt-recorder-player"
+              ]
+            },
+            {
+              "group": "Customize UI",
+              "pages": [
+                "async-collaboration/recorder/customize-ui/parts",
+                "async-collaboration/recorder/customize-ui/slots",
+                "async-collaboration/recorder/customize-ui/variables",
+                "async-collaboration/recorder/customize-ui/custom-button"
+              ]
+            }
+
+            
+
+          ]
+        }
+      ]
+    },
+    {
+      "group": "In-App User Feedback",
+      "pages": [
+        {
+          "group": "User Feedback",
+          "pages": [
+            "in-app-user-feedback/overview",
+            "in-app-user-feedback/setup",
+            "in-app-user-feedback/customize-behavior"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Permission Management",
+      "pages": [
+        {
+          "group": "Share & Invite",
+          "pages": [
+            "permission-management/share-and-invite/overview",
+            "permission-management/share-and-invite/setup",
+            {
+              "group": "Customize UI",
+              "pages": [
+                "permission-management/share-and-invite/customize-ui/parts",
+                "permission-management/share-and-invite/customize-ui/slots",
+                "permission-management/share-and-invite/customize-ui/variables"
+              ]
+            }
+          ]
+          
+          
+        }
+      ]
+    },
+    {
+      "group": "AI Copilot",
+      "pages": [
+        {
+          "group": "Design",
+          "pages": [
+            "ai-copilot/design/overview",
+            "ai-copilot/design/setup"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Global Styles",
+      "pages": [
+        "global-styles/global-styles",
+        "global-styles/css-injection"     
+      ]
+    },
+    {
+      "group": "Webhooks",
+      "pages": [
+        "webhooks/overview"
+      ]
+    },
+    {
+      "group": "Notifications",
+      "pages": [
+        {
+          "group": "Email",
+          "pages": [
+            "notifications/email/overview"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Security",
+      "pages": [  
+        "security/content-security-policy",
+        "security/auth-tokens",
+        "security/jwt-tokens"
+      ]
+    },
+    {
+      "group": "Examples",
+      "pages": [
+        "examples/overview",
+        "examples/video-editor",
+        "examples/docs",
+        "examples/sheets",
+        "examples/slides",
+        "examples/dashboard",
+        "examples/creative-tool",
+        "examples/workflow-builder",
+        "examples/toolbar"
+      ]
+    }
+  
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/veltjs",
+    "linkedin": "https://www.linkedin.com/company/veltjs",
+    "disord": "https://discord.gg/GupvcYH27h"
+  },
+  "metadata": {
+    "og:image": "https://firebasestorage.googleapis.com/v0/b/snippyly.appspot.com/o/external%2Fvelt_docs.png?alt=media&token=9e4502da-66ef-4005-9124-dbc76f04b1fd",
+    "twitter:image": "https://firebasestorage.googleapis.com/v0/b/snippyly.appspot.com/o/external%2Fvelt_docs.png?alt=media&token=9e4502da-66ef-4005-9124-dbc76f04b1fd"
+  },
+  "feedback": {
+    "thumbsRating": true
+  },
+  "api": {
+    "playground": {
+      "mode": "simple"
+    }
+  }
+  
+  
+}
+
+
+

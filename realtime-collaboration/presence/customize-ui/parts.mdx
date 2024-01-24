@@ -1,0 +1,61 @@
+---
+title: "Parts"
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+
+<Steps>
+
+<Step title="Select the part you want to modify">
+We offer several parts which can be used like classes. Full list below.
+
+The component is encapsulated in Shadow DOM, which is isolated from the normal DOM.
+</Step>
+
+<Step title="Apply your CSS rules">
+Set whatever CSS rules you want.
+
+The part lets you target a specific element within a Shadow DOM.
+</Step>
+
+<Step title="Check out the table below">
+Reference the table below to see what parts we expose.
+
+Alternatively, you can directly inspect the component HTML to see what parts are available.
+
+| Part Name      | What does it do?                   |
+| -------------- | ---------------------------------- |
+| tooltip        | Targets the tooltip container      |
+| tooltip-avatar | Targets the tooltip avatar         |
+| tooltip-text   | Targets the tooltip text container |
+| user-avatar    | Targets the user avatar container  |
+| more-users     | Targets the more users container   |
+</Step>
+
+
+</Steps>
+
+
+
+
+
+
+<RequestExample>
+
+```css Parts
+velt-presence::part(user-avatar)::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 0, 0, 0.5), rgba(0, 255, 0, 0.5));
+  pointer-events: none;
+}
+```
+
+</RequestExample>

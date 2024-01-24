@@ -1,0 +1,30 @@
+---
+title: PresenceUser
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+
+## `PresenceUser` Class Properties
+
+| Property           | Type           | Optional | Description                                                                       |
+|--------------------|----------------|----------|-----------------------------------------------------------------------------------|
+| `userId`             | String         | No       | Unique user identifier                                                            |
+| `name`               | String         | Yes      | User's full name (Default: Random avatar name)                                    |
+| `email`              | String         | Yes      | User's email address                                                              |
+| `photoUrl`           | String         | Yes      | User's display picture URL (Default: Random avatar image)                         |
+| `onlineStatus`       | String         | No       | Online status (active, inactive, offline) (Auto generated)                        |
+| `userSnippylyId`     | String         | Yes      | Unique ID for internal processing                                                 |
+| `color`              | String         | Yes      | Assigned color for the user (Auto generated)                                      |
+| `timestamp`          | Any            | No       | Server Timestamp                                                                  |
+| `type`               | String         | Yes      | User type                                                                         |
+| `selections`         | Any            | Yes      | User selections                                                                   |
+| `documentParamsId`   | Number, null   | Yes      | Deprecated unique document params ID                                              |
+| `documentParams`     | Object, null   | Yes      | Deprecated document params                                                        |
+| `locationId`         | Number, null   | Yes      | Unique location ID                                                                |
+| `location`           | `Location`, null | Yes      | Location of user on sub document                                                  |
+| `isReadOnly`         | Boolean        | Yes      | Indicates if user is readonly                                                     |
+| `isAnonymous`        | Boolean        | Yes      | If user can only view comments (Anonymous)                                        |
+| `pageInfo`           | `PageInfo`       | No       | Information about the page                                                        |
+

@@ -1,0 +1,287 @@
+## useIdentify()
+
+Hook that calls `client.identify()`.
+
+```jsx
+import { useIdentify } from "@veltdev/react";
+import { useEffect, useState } from "react";
+
+export default function YourAuthComponent() {
+  
+  // Create the Velt user object
+  let veltUser = {
+    userId: "your-user-id",
+    name: "John Smith"
+    email: "jsmith@velt.dev",
+    photoUrl: "https://i.pravatar.cc/304?u=user${randomNum}@velt.dev",
+    groupId: "theoffice",
+  };
+  
+
+  //identify Velt user
+  useIdentify(veltUser)
+
+
+  return (
+    <div>Your Auth Template</div>
+  )
+}
+
+```
+
+## useSetDocumentId()
+
+Hook that calls `client.setDocumentId()`.
+
+
+```jsx
+import { useSetDocumentId } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  useSetDocumentId("my-document-id")
+
+  return (
+    <div>
+        Your Document Template
+    </div>
+  )
+}
+```
+
+## useSetLocation()
+
+Hook that calls `client.setLocation()`.
+
+```jsx
+import { useSetLocation } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  const handleSetLocation = () => {
+    useSetLocation({
+        scene: "scene1"
+    })
+  }
+
+
+  return (
+    <div>
+        <button onClick={handleSetLocation}>Set Location to Scene 1</button>
+    </div>
+  )
+}
+```
+
+## useAddLocation()
+
+Hook that calls `client.addLocation()`.
+
+```jsx
+import { useAddLocation } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  const handleAddLocation = () => {
+    useAddLocation({
+        scene: "scene1"
+    })
+  }
+
+
+  return (
+    <div>
+        <button onClick={handleAddLocation}>Add Scene 1 Location</button>
+    </div>
+  )
+}
+```
+
+## useLiveStateSyncUtils()
+
+Hook that calls `client.getLiveStateSyncElement()`.
+
+
+```jsx
+import { useLiveStateSyncUtils } from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let liveStateSyncElement = useLiveSelectionUtils()
+  //Enable Single Editor Mode
+  liveStateSyncElement?.enableSingleEditorMode();
+
+
+  return (
+    <div>
+        <button onClick={handleSetLocation}>Set Location to Scene 1</button>
+    </div>
+  )
+}
+```
+
+
+## useLiveStateData()
+
+Hook that calls `liveStateSyncElement.getLiveStateData()`
+
+
+```jsx
+import { useLiveStateData, useSetLiveStateData} from '@veltdev/react';
+
+export default function YourDocument() {
+
+  //sets the live state data object
+  useSetLiveStateData("myUniqueId", { 
+    "myKey": "hello world!",
+  })
+
+  let data = useLiveStateData("myUniqueId")
+
+  return (
+    <div>
+        {data?.myKey}
+    </div>
+  )
+}
+```
+
+## useSetLiveStateData()
+
+Hook that calls `liveStateSyncElement.setLiveStateData()`
+
+```jsx
+import { useLiveStateData, useSetLiveStateData} from '@veltdev/react';
+
+export default function YourDocument() {
+
+  useSetLiveStateData("myUniqueId", {
+    "myKey": "hello world!",
+  })
+
+
+  //gets the live state data object
+  let data = useLiveStateData("myUniqueId")
+
+  return (
+    <div>
+        {data?.myKey}
+    </div>
+  )
+}
+```
+
+## useUserEditorState()
+
+Hook that calls `liveStateSyncElement.isUserEditor()`
+
+```jsx
+import { useUserEditorState} from '@veltdev/react';
+
+export default function YourDocument() {
+
+  let isEditor = useUserEditorState()
+  console.log("Is User Editor?: ", isEditor)
+
+  return (
+    <div>
+        Is User Editor?: {isEditor}
+    </div>
+  )
+}
+```
+
+## useEditorAccessRequestHandler()
+
+Hook that calls `liveStateSyncElement.isEditorAccessRequested()`
+
+```jsx
+import { useEditorAccessRequestHandler } from '@veltdev/react';
+
+export default function YourDocument= () {
+	const editorAccessRequested = useEditorAccessRequestHandler();
+
+
+  return (
+    <div>
+        Is Editor Access Being Requested? : {editorAccessRequested}
+    </div>
+  )
+}
+```
+
+## usePresenceUtils()
+
+Hook that calls `client.getPresenceElement()`.
+
+## useCursorUtils()
+
+Hook that calls `client.getCursorElement()`.
+
+## useCommentUtils()
+
+Hook that calls `client.getCommentElement()`.
+
+## useTagUtils()
+
+Hook that calls `client.getTagElement()`.
+
+## useLiveSelectionUtils()
+
+Hook that calls `client.getLiveSelectElement()`.
+
+## useRecorderUtils()
+
+Hook that calls `client.getRecorderElement()`.
+
+## useContactUtils()
+
+Hook that calls `client.getContactElement()`.
+
+## useAIRewriterUtils()
+
+Hook that calls `client.getRewriterElement()`.
+
+## useHuddleUtils()
+
+Hook that calls `client.getHuddleElement()`.
+
+
+## useCommentAnnotations()
+
+Hook that calls `commentElement.getAllCommentAnnotations()`
+
+## useCommentModeState()
+
+Hook that calls `commentElement.onCommentModeChange()`
+
+## useCommentAddHandler()
+
+Hook that calls `commentElement.onCommentAdd()`
+
+## useCommentUpdateHandler()
+
+Hook that calls `commentElement.onCommentUpdate()`
+
+## useCommentDialogSidebarClickHandler()
+
+Hook that calls `commentElement.onSidebarButtonOnCommentDialogClick()`
+
+## useCursorUsers()
+
+Hook that calls `cursorElement.getOnlineUsersOnCurrentDocument()`
+
+
+
+
+## usePresenceUsers()
+
+Hook that calls `presenceElement.getOnlineUsersOnCurrentDocument()`
+
+## useRecorderAddHandler()
+
+Hook that calls `recorderElement.onRecordedData()`
+
+## useTagAnnotations()
+
+Hook that calls `tagElement.getAllTagAnnotations()`

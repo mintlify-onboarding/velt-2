@@ -1,0 +1,119 @@
+---
+title: "Setup"
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+<Tabs>
+  <Tab title="React / Next.js">
+
+
+<Steps titleSize="h2">
+
+<Step title="Import Presence Component">
+Import the `Presence` component from the React library.
+
+```js
+import { VeltPresence } from '@veltdev/react';
+```
+
+</Step>
+
+<Step title="Add Presence Component">
+Add it anywhere you want to see the `User` avatars.
+
+```js
+<VeltPresence />
+```
+
+This component renders the avatars of `Users` on the same document in your web app. We automactically detect when `Users` are active on the document and render their avatars.
+
+</Step>
+
+<Step title="Test Integration">
+Test it out by opening the target page in two browsers with two different `Users` logged in.
+
+You should see the avatars of the `Users` rendered where you added the `Presence` component.
+
+</Step>
+
+
+</Steps>
+
+</Tab>
+
+<Tab title="HTML">
+<Steps titleSize="h2">
+
+<Step title="Import the Velt Script tag">
+```html
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.11/velt.js" onload="loadVelt()"></script>
+```
+</Step>
+
+<Step title="Initialize with your API Key">
+Put this in your root app script:
+```js
+async function loadVelt() {
+    await Velt.init("YOUR_VELT_API_KEY");
+}
+```
+</Step>
+
+<Step title="Place the <velt-presence> component">
+Place the component wherever you want the avatars to appear.
+
+```html
+<velt-presence></velt-presence>
+```
+
+
+</Step>
+
+<Step title="Test Integration">
+Test it out by opening the target page in two browsers with two different `Users` logged in.
+
+You should see the avatars of the `Users` rendered where you added the `Presence` component.
+
+</Step>
+</Steps>
+   
+
+
+
+  </Tab>
+</Tabs>
+
+<RequestExample>
+
+```js React
+import { VeltPresence } from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <div className="toolbar">
+      <VeltPresence />
+    </div>
+  );
+}
+```
+
+
+
+```html HTML
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Presence documentation</title>
+  </head>
+  <body>
+    <div class="toolbar">
+      <velt-presence></velt-presence>
+    </div>
+  </body>
+</html>
+```
+
+</RequestExample>

@@ -1,0 +1,42 @@
+<Steps titleSize="h2">
+
+<Step title="Select the part you want to modify">
+We offer several parts which can be used like classes. Full list below.
+The component is encapsulated in Shadow DOM, which is isolated from the normal DOM.
+
+</Step>
+
+<Step title="Apply your CSS rules">
+Set whatever CSS rules you want.
+The part lets you target a specific element within a Shadow DOM.
+</Step>
+
+<Step title="Check out the table below">
+Reference the table below to see what parts we expose.
+Alternatively, you can directly inspect the component HTML to see what parts are available.
+
+| property | description |
+|---|---|
+| `comment-pin` | Targets the comment pin component used in the comment bubble |
+| `container` | Targets the container of the comment bubble |
+| `count-container` | Targets the container of the comment count |
+| `count-icon` | Targets the SVG icon used in the comment count |
+| `count-icon-path` | Targets the SVG icon path used in the comment count |
+| `count` | Targets the count text container |
+| `user-avatar` | Targets the user avatar component used in the comment bubble |
+
+</Step>
+
+</Steps>
+
+
+<RequestExample>
+
+```css Bubble
+velt-comment-bubble::part(count) {
+  font-size: 14px;
+}
+```
+
+
+</RequestExample>

@@ -1,0 +1,112 @@
+---
+title: "Comments"
+sidebarTitle: "Overview"
+description: "Your users can add comments in context to ask questions, leave feedback, report bugs etc. We handle all complexity to ensure the comments are robust against content changes. We support many types of comment UX patterns as illustrated below."
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+The Velt SDK contains 6 components that can be used to control the Comments functionality:
+ - `VeltComments` - Used to enable the Comments feature site wide
+ - `VeltCommentTool` - A button that turns on Comment mode
+ - `VeltCommentsSidebar` - A sidebar that holds active comments
+ - `VeltSidebarButton` - a button to toggle the Comments sidebar
+ - `VeltCommentBubble` - a comment button you can add to an element
+ - `VeltCommentPlayerTimeline` - a way to enable comments on a video player timeline
+
+
+There are also 6 different types of comment modes that Velt supports:
+ - `Freestyle` - comment anywhere on the page
+ - `Popover` - comment on specific elements that have been marked
+ - `Stream` - comments appear in a column on the right side
+ - `Text` - comments appear as text highlights
+ - `Inbox` - focused comments appear in a sidebar on the right
+ - `Page` - allows comments to be made on the page level instead of pinned to a specific area
+
+
+<Tabs>
+  <Tab title="Freestyle">
+  <Frame>
+    <iframe
+      src="https://landing-page-demo-velt.vercel.app/?feature=comments&type=freestyle"
+      allow="camera; microphone"
+      scrolling="no"
+      frameborder="0"
+      height="500px"
+      className="w-full"
+    ></iframe>
+  </Frame>
+  [Open in larger window](https://landing-page-demo-velt.vercel.app/?feature=comments&type=freestyle)
+
+  </Tab>
+  <Tab title="Popover">
+  <Frame>
+    <iframe
+      src="https://landing-page-demo-velt.vercel.app/?feature=comments&type=popover"
+      allow="camera; microphone"
+      scrolling="no"
+      frameborder="0"
+      className="w-full"
+      height="500px"
+    ></iframe>
+  </Frame>
+  [Open in larger window](https://landing-page-demo-velt.vercel.app/?feature=comments&type=popover)
+
+  </Tab>
+  <Tab title="Stream">
+  <Frame>
+    <iframe
+      src="https://landing-page-demo-velt.vercel.app/?feature=comments&type=stream"
+      allow="camera; microphone"
+      frameborder="0"
+      height="500px"
+      class="w-full"
+    ></iframe>
+  </Frame>
+  [Open in larger window](https://landing-page-demo-velt.vercel.app/?feature=comments&type=stream)
+
+  </Tab>
+  <Tab title="Text">
+  <Frame>
+    <iframe
+      src="https://landing-page-demo-velt.vercel.app/?feature=comments&type=text"
+      allow="camera; microphone"
+      scrolling="no"
+      frameborder="0"
+      height="500px"
+      class="w-full"
+    ></iframe>
+  </Frame>
+  [Open in larger window](https://landing-page-demo-velt.vercel.app/?feature=comments&type=text)
+
+  </Tab>
+  <Tab title="Inbox">
+  <Frame>
+    <iframe
+      src="https://landing-page-demo-velt.vercel.app/?feature=comments&type=inbox"
+      allow="camera; microphone"
+      scrolling="no"
+      frameborder="0"
+      height="500px"
+      class="w-full"
+    ></iframe>
+  </Frame>
+  [Open in larger window](https://landing-page-demo-velt.vercel.app/?feature=comments&type=inbox)
+
+  </Tab>
+  <Tab title="Page">
+  <Frame>
+    <iframe
+      src="https://docs-mini-demo.vercel.app/comments-page-mode"
+      allow="camera; microphone"
+      scrolling="no"
+      frameborder="0"
+      height="500px"
+      class="w-full"
+    ></iframe>
+  </Frame>
+  [Open in larger window](https://docs-mini-demo.vercel.app/comments-page-mode)
+
+  </Tab>
+</Tabs>

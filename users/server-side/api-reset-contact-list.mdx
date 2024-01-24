@@ -1,0 +1,65 @@
+---
+title: "Create or Replace Contact List"
+description: "Replace an entire Group IDs contact list using a POST Method."
+api: "POST https://updatecontactlist.api.velt.dev"
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+## Create or Replace Contact List for a Group ID using POST Method API
+
+`User's` within the same `groupId` will see the same contacts list. 
+
+You can use this method to create a new contact list for an entire `groupId` if you don't already have a `groupId` contact list set up yet.
+
+You can also use this method to replace an entire `groupId's` contact list if you already have an existing list and want to replace it.
+
+This is useful if you have your user data maintained in a separate database and want to sync the contacts list with your database.
+
+<Warning>On the client side, be sure to use the same `groupId` when authenticating your `Users`. Otherwise, they will not see the correct contact list.</Warning>
+
+Endpoint:
+```
+https://updatecontactlist.api.velt.dev
+```
+
+Header:
+```jsx
+Authorization: Bearer {AUTH_TOKEN}
+```
+
+<Info>
+Not sure where find your Auth Token? You can follow [these steps](/security/auth-tokens) to generate your Auth Token.
+</Info>
+
+Body:
+```jsx
+{
+    "apiKey": "API_KEY",
+    "groupId": "GROUPID",
+		// list of contacts
+    "contacts": [
+        {
+            "name": "Test user1", // optional
+            "email": "testuser1@gmail.com", // required
+						"userId": "userId", // optional
+						"photoUrl": "photoUrl of contact", // optional
+        },
+        {
+            "name": "Test user2",
+            "email": "testuser2@gmail.com"
+        },
+        {
+            "name": "Test user3",
+            "email": "vivek+6.10.1+guestmode@snippyly.com"
+        }
+    ]
+}
+```
+
+
+
+<Warning>
+No special characters such as dashes are allowed in `groupId`
+</Warning>

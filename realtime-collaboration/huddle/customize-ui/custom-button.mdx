@@ -1,0 +1,69 @@
+---
+title: "Custom Button"
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+
+<Tabs>
+    <Tab title="React / Next.js">
+
+## Custom Huddle Button
+
+If you want to replace the default arrow button with your own custom button, you can pass it in as a child component.
+
+```jsx
+<VeltHuddleTool>
+    <button className="myButton"></button
+</VeltHuddleTool>
+```
+    </Tab>
+
+    <Tab title="HTML">
+## Custom Huddle Button
+
+If you want to replace the default arrow button with your own custom button, you can pass it in as a child component.
+
+```html HTML
+<velt-arrow-tool>
+    <button class="myButton"></button
+</velt-arrow-tool>
+```
+
+
+    </Tab>
+
+</Tabs>
+
+
+<RequestExample>
+```js React / Next.js
+import { VeltHuddleTool } from '@veltdev/react';
+
+function YourComponent() {
+
+return (
+    <VeltHuddleTool>
+        //custom arrow button goes here
+        <button className="myButton"></button
+    </VeltHuddleTool>
+  )
+  
+}
+```
+
+
+
+
+   
+
+```html HTML
+<velt-arrow-tool>
+    <!-- custom arrow button goes here -->
+    <button class="myButton"></button
+</velt-arrow-tool>
+```
+
+</RequestExample>
+ 

@@ -1,0 +1,233 @@
+---
+title: "2. Authenticate"
+description: "Autheticate your logged in users with the SDK."
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+<Tabs>
+  <Tab title="React / Next.js">
+
+<Warning>It is critical that you do the following steps within a child component and not within the same root component where you placed the VeltProvider.</Warning>
+<Info>Realistically, these steps should be done inside your component that handles authentication.</Info>
+
+<Steps titleSize="h2">
+
+<Step title="Get the Velt client">
+
+Import the `useVeltClient` React hook. You can use this hook within your
+component to fetch the Velt client. 
+  
+```js
+import { useVeltClient } from '@veltdev/react';
+```
+
+```js
+const { client } = useVeltClient();
+```
+
+
+</Step>
+
+<Step title="Create a useEffect hook">
+```js
+  useEffect(() => {
+    if (client && yourAuthenticatedUser) {
+      // Fetch the relevant user info from your authenticated user object.
+    }
+  }, [client, yourAuthenticatedUser]);
+```
+</Step>
+
+<Step title="Fetch relevant user info">
+Create a Velt `User` object by taking the relevant fields from `yourAuthenticatedUser`.
+
+```js
+
+  // Fetch the relevant user info from `yourAuthenticatedUser`
+  const { uid, displayName, email, photoURL, groupId } = yourAuthenticatedUser;
+
+  // Create the Velt user object
+  const user = {
+    userId: uid,
+    name: displayName,
+    email: email,
+    photoUrl: photoURL,
+    groupId: groupId // this is the organization id the user belongs to.
+  };
+```
+
+<Info>
+To enable `@mention` in the comments, you need to pass the user's contacts. Learn more about how it works [here](https://docs.velt.dev/users/add-user-contacts/setup).
+</Info>
+
+</Step>
+
+<Step title=" Pass the User object to the SDK">
+Call the `identify()` method and pass in the Velt `User` object.
+
+```js
+  await client.identify(user);
+```
+
+<Info>The `client.identify()` method is asynchronous.</Info>
+
+</Step>
+</Steps>
+
+
+
+
+
+
+
+
+
+
+
+  </Tab>
+  <Tab title="HTML">
+
+<Steps titleSize="h2">
+
+
+
+<Step title="Fetch relevant user info">
+Create a Velt `User` object.
+
+```js
+
+  // Fetch the relevant user info from `yourAuthenticatedUser`
+  const { uid, displayName, email, photoURL, groupId } = yourAuthenticatedUser;
+
+  // Create the Velt user object
+  const user = {
+    userId: uid,
+    name: displayName,
+    email: email,
+    photoUrl: photoURL,
+    groupId: groupId
+  };
+```
+
+<Info>
+To enable `@mention` in the comments, you need to pass the `User's` contacts. Learn more about how it works [here](https://docs.velt.dev/users/add-user-contacts/setup).
+</Info>
+
+</Step>
+
+<Step title="Identify the Logged In User">
+Call this function in the component where you authenticate your `Users` once your Velt client and your `User` object is available.
+
+If your `.js` files are all in one file, you will need to include the `.js` file on every html page you want the features to be enabled on.
+
+Make sure you pass the `User` with the fields defined in the `User` object or refer to the example below.
+
+
+```js
+    await Velt.identify(yourLoggedInUser)
+```
+
+<Info>The `Velt.identify()` method is asynchronous</Info>
+</Step>
+
+
+</Steps>
+
+  </Tab>
+</Tabs>
+
+<RequestExample>
+
+```js React / Next.js
+//Warning: Make sure this is a child component to VeltProvider 
+//and not within the same file where VeltProvider is placed.
+
+// 1) Get the Velt Client
+import { useVeltClient } from '@veltdev/react';
+import { useEffect } from 'react';
+
+
+export default function YourAuthComponent() {
+
+  const userService = () => {
+    return {
+      uid:"123",
+      displayName:"Bob",
+      email:"bob@gmail.com",
+      photoURL:'https://i.pravatar.cc/300',
+      groupId: groupId
+    }
+  }
+
+  let yourAuthenticatedUser = userService()
+
+  const { client } = useVeltClient();
+
+  // 2) Create a useEffect hook
+  useEffect(() => {
+    const initVelt = async () => {
+      if (client && yourAuthenticatedUser) {
+
+        // 3) Fetch the relevant user info from yourAuthenticatedUser
+        const { uid, displayName, email, photoURL, groupId } = yourAuthenticatedUser;
+
+        // Create the Velt user object
+        const user = {
+          userId: uid,
+          name: displayName,
+          email: email,
+          photoUrl: photoURL,
+          groupId: groupId
+        };
+
+        //4) Pass the user object to the SDK
+        await client.identify(user)
+      }
+    }
+    initVelt().catch(console.error)
+  }, [client, yourAuthenticatedUser]);
+
+  return (
+    <div>
+    // Your auth component template
+    </div>
+  );
+}
+
+```
+
+```html HTML
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Collaboration App</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@veltdev/sdk@1.0.11/velt.js" onload="loadVelt()"></script>
+    <script>
+      async function loadVelt() {
+        await Velt.init("YOUR_VELT_API_KEY");
+        if (Velt) {
+          // You need to pass these fields about your logged in user to us.
+          const yourLoggedInUser = {
+            userId: '9snk30djks9e4mndk',
+            name: 'John Doe',
+            photoUrl: 'https://i.pravatar.cc/300', //(optional)
+            email: 'jdoe@xyz.com',
+            plan: 'free', //(optional)
+            groupId: 'customerGroupId123', //(optional) If there are multiple users added to the same account, then use this to help us group them together in our system as well.
+          }
+          // 1) Identify the Logged In User
+          await Velt.identify(yourLoggedInUser)
+        }       
+      }
+    </script>
+  </head>
+  <body>
+    
+  </body>
+</html>
+```
+
+</RequestExample>

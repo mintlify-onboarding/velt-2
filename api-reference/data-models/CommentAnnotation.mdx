@@ -1,0 +1,73 @@
+---
+title: CommentAnnotation
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+## `CommentAnnotation` Class Properties
+
+| Property              | Type                      | Optional | Description                                                                                   |
+|-----------------------|---------------------------|----------|-----------------------------------------------------------------------------------------------|
+| `annotationId`        | string                    | No       | Unique identifier for the comment pin annotation. Auto generated.                             |
+| `comments`            | Comment[]                 | No       | The list of all comments part of this annotation.                                             |
+| `commentCategories`   | CustomCategory[]          | No       | The list of categories that this comment pin annotation belongs to.                           |
+| `from`                | User                      | No       | The user who created this comment pin annotation.                                             |
+| `color`               | string                    | Yes      | Color used for the comment pin annotation.                                                    |
+| `resolved`            | boolean                   | Yes      | Whether the comment annotation is marked resolved. Deprecated.                                |
+| `inProgress`          | boolean                   | Yes      | Whether the comment annotation is marked as in progress. Deprecated.                          |
+| `lastUpdated`         | any                       | Yes      | Timestamp when the comment annotation was last updated. Auto generated.                       |
+| `positionX`           | number                    | Yes      | Comment annotation's position on the X axis. Auto generated.                                  |
+| `positionY`           | number                    | Yes      | Comment annotation's position on the Y axis. Auto generated.                                  |
+| `screenWidth`         | number                    | Yes      | User’s screen width. Auto generated.                                                          |
+| `screenHeight`        | number                    | Yes      | User’s screen height. Auto generated.                                                         |
+| `screenScrollHeight`  | number                    | Yes      | User’s screen scroll height. Auto generated.                                                  |
+| `screenScrollTop`     | number                    | Yes      | User’s screen scroll top value. Auto generated.                                               |
+| `taggedElementPath`   | string                    | Yes      | Xpath of the element that was clicked. Auto generated.                                        |
+| `taggedElementRect`   | any                       | Yes      | Rectangle bounds of the clicked element. Auto generated.                                      |
+| `targetElement`       | TargetElement \| null     | Yes      | Target element of comment annotation.                                                         |
+| `targetElementId`     | string \| null            | Yes      | Target element id provided by user.                                                           |
+| `position`            | CursorPosition \| null    | Yes      | Cursor position relative to the comment annotation.                                           |
+| `documentParamsId`    | number \| null            | Yes      | Unique document params id. Deprecated.                                                        |
+| `documentParams`      | Location \| null          | Yes      | Set document params to identify user. Deprecated.                                             |
+| `locationId`          | number \| null            | Yes      | Unique location id generated from provided location.                                          |
+| `location`            | Location \| null          | Yes      | Set location to identify user on sub document.                                                |
+| `type`                | string                    | Yes      | Type of the comment annotation.                                                               |
+| `targetTextRange`     | TargetTextRange \| null   | Yes      | Selected text range of comment annotation.                                                    |
+| `selectAllContent`    | boolean                   | Yes      | If true, sets text comment annotation on all the text content.                                |
+| `approved`            | boolean                   | Yes      | Whether the comment annotation is approved.                                                   |
+| `status`              | CustomStatus              | No       | Status of the comment annotation.                                                             |
+| `annotationIndex`     | number                    | Yes      | Index of current annotation in the list.                                                      |
+| `pageInfo`            | PageInfo                  | Yes      | Page information related to the comment annotation.                                           |
+| `assignedTo`          | User                      | Yes      | User to whom the comment annotation is assigned.                                              |
+| `priority`            | CustomPriority            | Yes      | Priority level of the comment annotation.                                                     |
+| `ghostComment`        | GhostComment \| null      | Yes      | Placeholder for a non-existing comment.                                                       |
+| `areaAnnotationId`    | string                    | Yes      | Connected area annotation id.                                                                 |
+| `context`             | any                       | Yes      | Custom context data provided by the user.                                                     |
+| `iam`                 | CommentIAMConfig          | No       | IAM configuration for the comment annotation.                                                 |
+
+## `GhostComment` Class Properties
+
+| Property        | Type                      | Optional | Description                                                                                   |
+|-----------------|---------------------------|----------|-----------------------------------------------------------------------------------------------|
+| `targetElement` | TargetElement \| null     | Yes      | The target element related to the ghost comment.                                              |
+| `message`       | string                    | Yes      | The message of
+
+ the ghost comment.                                                             |
+| `type`          | string                    | Yes      | The type of the ghost comment.                                                                |
+| `isSameGroup`   | boolean                   | Yes      | To check if comment is from the same device group or not.                                     |
+
+## `CommentOnElementConfig` Class Properties
+
+| Property        | Type                      | Optional | Description                                                                                   |
+|-----------------|---------------------------|----------|-----------------------------------------------------------------------------------------------|
+| `targetElement` | object                    | Yes      | Configuration for the target element related to the comment.                                  |
+| `commentData`   | array                     | Yes      | Array of comment data objects.                                                                |
+| `status`        | string                    | Yes      | Status of the comment on the element.                                                         |
+
+## `CommentIAMConfig` Class Properties
+
+| Property     | Type                    | Optional | Description                                                                                   |
+|--------------|-------------------------|----------|-----------------------------------------------------------------------------------------------|
+| `accessMode` | CommentAccessMode       | Yes      | Access mode for the comment, defining the permissions and visibility.                         |
+

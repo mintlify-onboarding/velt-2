@@ -1,0 +1,335 @@
+---
+title: "Setup"
+description: "Set up User groups and User contact lists to enable `Users` to `@mention `and tag eachother within `Comments`."
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+<Tabs>
+  <Tab title="React / Next.js">
+
+<Steps titleSize="h2">
+
+<Step title="Create a User object">
+
+Create a `User` object with the following initial fields.
+
+```jsx
+let user = {
+  userId:"123",
+  name:"Bob",
+  email:"bob@gmail.com",
+  photoURL:'https://i.pravatar.cc/300'
+}
+```
+
+</Step>
+
+<Step title="Set a groupId">
+
+Set the `groupId` on the `User` object you just created.
+
+Over time, as users from the same `groupId` sign in, they will be automatically added to each other's contact list.
+
+```js
+  user.groupId = 'somegroupid';
+```
+
+<Warning>
+No special characters such as dashes are allowed in `groupId`
+</Warning>
+</Step>
+
+<Step title="Manually preload the user contact list"> 
+
+Provide the `contacts` field on your `User` object with an array of `UserContact` objects.
+
+This will preload the `User` contact list with an initial list of contacts.
+
+```js
+ const contacts = [
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460307',
+          name: 'John Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'john.doe@snippyly.com',
+          groupId: 'somegroupid', //used only for reference
+          visibility: 'group' //set visibility to `group` to add the contact to all members of the groupId
+        },
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460308',
+          name: 'Mary Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'mary.doe@snippyly.com',
+          groupId: 'somegroupid', //used only for reference
+          visibility: 'private' // set visibilty to `private` to only add the contact to the authenticated User 
+        }
+      ];
+      user.contacts = contacts;
+```
+
+By default, all members of the same `groupId` as the authenticated `User` will also have this list of `UserContacts` added to their contacts list.
+
+<Info>Setting visibility to `private` will only add the `UserContact` to the authenticated `User's` contact list instead of adding it to all `groupId` members.</Info>
+
+<Note>Confused about the difference between `UserContact` and `User`? A `UserContact` is used solely to populate a contacts list and is not used to authenticate contacts in the list.</Note>
+</Step>
+
+
+<Step title="Authenticate your user">
+Authenticate your `User` with the `identify()` method from the Velt client.
+
+This will configure your `User` with the `groupId` and `contacts` list you set previously.
+
+```jsx
+client.identify(user)
+```
+
+</Step>
+
+</Steps>
+
+# Advanced Setup
+
+## Replace Contact List
+
+To replace a user's contact list, use the `client.identify()` method and pass in `{replaceContacts: true}` as the second parameter. This will completely replace the users contact list.
+
+```jsx
+client.identify(yourLoggedInUser, {
+    replaceContacts: true
+}).then((res) => {
+  // User auth successful with Velt
+}).catch((err) => {
+  // Failed to authenticate user with Velt
+});
+```
+
+## Private Contacts
+
+To make a `UserContact` a private contact, meaning they will only be added to the authenticated `User's` contact list instead of to all group members' contact lists, set the `visibility` attribute to `private`.
+
+
+```
+{
+  visibility: 'private'
+}
+```
+
+
+
+  </Tab>
+  
+
+  <Tab title="HTML">
+<Steps titleSize="h2">
+
+<Step title="Create a User object">
+
+Create a `User` object with the following initial fields.
+
+```jsx
+let user = {
+  userId:"123",
+  name:"Bob",
+  email:"bob@gmail.com",
+  photoURL:'https://i.pravatar.cc/300'
+}
+```
+
+</Step>
+
+<Step title="Set a groupId">
+
+Set the `groupId` on the `User` object you just created.
+
+Over time, as users from the same `groupId` sign in, they will be automatically added to each other's contact list.
+
+```js
+  user.groupId = 'somegroupid'; 
+```
+
+<Warning>
+No special characters such as dashes are allowed in `groupId`
+</Warning>
+</Step>
+
+<Step title="Manually preload the user contact list"> 
+
+Provide the `contacts` field on your `User` object with an array of `UserContact` objects.
+
+This will preload the `User` contact list with an initial list of contacts.
+
+```js
+ const contacts = [
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460307',
+          name: 'John Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'john.doe@snippyly.com',
+          groupId: 'somegroupid', //used only for reference
+          visibility: 'group' //set visibility to `group` to add the contact to all members of the groupId
+        },
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460308',
+          name: 'Mary Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'mary.doe@snippyly.com',
+          groupId: 'somegroupid', //used only for reference
+          visibility: 'private' // set visibilty to `private` to only add the contact to the authenticated User 
+        }
+      ];
+      user.contacts = contacts;
+```
+
+By default, all members of the same `groupId` as the authenticated `User` will also have this list of `UserContacts` added to their contacts list.
+
+<Info>Setting visibility to `private` will only add the `UserContact` to the authenticated `User's` contact list instead of adding it to all `groupId` members.</Info>
+<Note>Confused about the difference between `UserContact` and `User`? A `UserContact` is used solely to populate a contacts list and is not used to authenticate contacts in the list.</Note>
+
+</Step>
+
+
+<Step title="Authenticate your user">
+Authenticate your `User` with the `identify()` method from the Velt client.
+
+This will configure your `User` with the `groupId` and `contacts` list you set previously.
+
+```jsx
+Velt.identify(user)
+```
+
+</Step>
+
+</Steps>
+
+# Advanced Setup
+
+## Replace Contact List
+
+To replace a user's contact list, use the `client.identify()` method and pass in `{replaceContacts: true}` as the second parameter. This will completely replace the users contact list.
+
+```jsx
+Velt.identify(yourLoggedInUser, {
+    replaceContacts: true
+}).then((res) => {
+  // User auth successful with Velt
+}).catch((err) => {
+  // Failed to authenticate user with Velt
+});
+```
+
+## Private Contacts
+
+To make a `UserContact` a private contact, meaning they will only be added to the authenticated `User's` contact list instead of to all group members' contact lists, set the `visibility` attribute to `private`.
+
+
+```
+{
+  visibility: 'private'
+}
+```
+
+  </Tab>
+</Tabs>
+
+<RequestExample>
+
+```js React / Next.js
+
+import { useVeltClient } from '@veltdev/react';
+import { useEffect } from 'react';
+
+export default function App() {
+
+  const { client } = useVeltClient();
+
+  useEffect(() => {
+    if (client && yourAuthenticatedUser) {
+      const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
+
+      const user = {
+        userId: uid,
+        name: displayName,
+        email: email,
+        photoUrl: photoURL
+      };
+
+      // 1) Set a user group
+      // Use your own logic to determine the group the user belongs to
+      user.groupId = 'some-group-id';
+
+      // 2) Manually bootstrap user contact list
+      // You can pass contacts as an array of UserContact objects.
+      // These contacts will show up in various features (eg: comments) so that user can tag, @mention them.
+      const contacts = [
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460307',
+          name: 'John Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'john.doe@snippyly.com',
+          visibility: 'group'
+        },
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460308',
+          name: 'Mary Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'mary.doe@snippyly.com',
+          visibility: 'private' //3) Add private contacts (optional)
+        }
+      ];
+      user.contacts = contacts;
+
+      client.identify(user);
+    }
+  }, [client, yourAuthenticatedUser]);
+
+  return (
+    // Your app template
+  );
+}
+```
+
+```js HTML
+<script>
+
+    if (Velt && yourAuthenticatedUser) {
+      const { uid, displayName, email, photoURL } = yourAuthenticatedUser;
+
+      const user = {
+        userId: uid,
+        name: displayName,
+        email: email,
+        photoUrl: photoURL
+      };
+
+      // 1) Set a user group
+      // Use your own logic to determine the group the user belongs to
+      user.groupId = 'some-group-id';
+
+      // 2) Manually bootstrap user contact list
+      // You can pass contacts as an array of UserContact objects.
+      // These contacts will show up in various features (eg: comments) so that user can tag, @mention them.
+      const contacts = [
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460307',
+          name: 'John Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'john.doe@snippyly.com',
+          visibility: 'group'
+        },
+        {
+          userId: 'd5558f1f-bdea-4eb5-9fd5-ed657e460308',
+          name: 'Mary Doe',
+          photoUrl: 'https://i.pravatar.cc/300',
+          email: 'mary.doe@snippyly.com',
+          visibility: 'private' //3) Add private contacts (optional)
+        }
+      ];
+      user.contacts = contacts;
+      Velt.identify(user);
+      
+```
+
+</RequestExample>

@@ -1,0 +1,70 @@
+
+
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+
+## Users
+
+A `User` represents a person who has been authenticated with the Velt SDK. 
+
+Once a `User` has been authenticated, their profile can be seen within Velt's collaboration features.
+
+For example in the `Comments` feature, the `User's` name is shown by their comment and in `@mentions`.
+
+Additionally in the `Presence` and in `Cursors` features, the `User's` name is shown by their avatar bubble and mouse cursors.
+
+## User schema
+
+A `User` has the following schema:
+
+| Property | Type | Description |
+|---|---|---|
+| `userId` | `string` | The user's unique identifier. |
+| `name` | `string` | The user's display name. |
+| `email` | `string` | The user's email address. |
+| `photoUrl` | `string` | The URL of the user's profile photo. |
+| `groupId`  | `string `| Your user's group ID |                                   
+| `contacts` | `UserContact[]` | An array of User Contact objects |
+| `plan`     | `string` | Your user's plan |
+
+
+## User groups
+
+`Users` in the same group get added to each other's contact list.
+
+Over time, as `Users` from the same `groupId` sign in, they will be automatically added to each other's contact list.
+
+They can then `@mention` or assign each other when they make comments.
+
+
+## User contacts list
+
+`UserContacts` are used to load the list of people that a user can `@mention` or assign when they make a comment. As we mentioned before, `Users` in the same `groupId` will get added to each other's contact lists.
+
+A User has a `contacts` attribute that has an array of `UserContact` objects. A `UserContact` has the following schema:
+
+
+| Field     | Type                | Description                                               |
+| --------  | ------------------- | --------------------------------------------------------- |
+| `userId`    | `string`              | Unique user identifier that you use to identify your user |
+| `name`      | `string` | Your user's full name                                     |
+| `photoUrl`  | `string` | Your user's avatar URL                                    |
+| `email`     | `string` | Your user's email                                         |
+| `groupId`   | `string` | Your user's group ID (only used for reference) |
+| `visibility`| `string` | Either 'private' or 'group'|
+
+You can set the `UserContacts` list to be empty initially or you can preload it with a list of contacts upon user authentication. If you preload the contact list, other members of the authenticated `User's` `groupId` will also see the preloaded contacts unless the `UserContact` has `visibility` set to `private`.
+
+### User contact visibility
+
+The `visibility` attribute on a `UserContact` object is either set to `private` or `group`.
+
+When it is set to `private`, they will only be added to the authenticated `User's` contact list and will not be added to any other `User's` contact list even if they have the same `groupId`.
+
+When it is set to `group`, they will be added to the contact lists of all `User's` with the same `groupId` as the authenticated `User`.
+
+
+
+

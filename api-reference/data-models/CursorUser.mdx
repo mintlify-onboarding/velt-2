@@ -1,0 +1,37 @@
+---
+title: CursorUser
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+## `CursorUser` Class Properties:
+
+| Property            | Type             | Optional | Description                                                                                                       |
+|---------------------|------------------|----------|-------------------------------------------------------------------------------------------------------------------|
+| `userId`              | string           | No       | Unique user identifier that you use to identify your user.                                                        |
+| `name`                | string           | Yes      | Your user's full name. Default: Random avatar name.                                                               |
+| `email`               | string           | Yes      | Your user's email address.                                                                                        |
+| `photoUrl`            | string           | Yes      | Your user's display picture URL. Default: Random avatar image.                                                    |
+| `comment`             | string           | Yes      | Short comment that user can add to their live cursor.                                                             |
+| `positionX`           | number           | Yes      | User’s live mouse position on the X axis. Auto generated.                                                         |
+| `positionY`           | number           | Yes      | User’s live mouse position on the Y axis. Auto generated.                                                         |
+| `screenWidth`         | number           | Yes      | User’s screen width. Auto generated.                                                                              |
+| `screenHeight`        | number           | Yes      | User’s screen height. Auto generated.                                                                             |
+| `screenScrollHeight`  | number           | Yes      | User’s screen scroll height. Auto generated.                                                                      |
+| `onlineStatus`        | string           | No       | User's online status (active, inactive, offline). Auto generated.                                                 |
+| `userSnippylyId`      | string           | Yes      | Auto generated unique user id linked with app's user ID for internal processing.                                  |
+| `color`               | string           | Yes      | A random color assigned to the user for the session, used on avatar border/live cursor.                            |
+| `timestamp`           | any              | No       | Server Timestamp.                                                                                                 |
+| `type`                | string           | Yes      | User type.                                                                                                        |
+| `selections`          | any              | Yes      | Information regarding user selections, specific structure not provided.                                           |
+| `documentParamsId`    | number \| null   | Yes      | Unique document params id from provided document params. Deprecated, use `locationId` instead.                    |
+| `documentParams`      | object \| null   | Yes      | Document params to identify user on sub document. Deprecated, use `location` instead.                             |
+| `locationId`          | number \| null   | Yes      | Unique location id from provided location.                                                                        |
+| `location`            | Location \| null | Yes      | Location to identify user on sub document.                                                                        |
+| `targetElement`       | TargetElement \| null | Yes      | Target element associated with the user.                                                                      |
+| `position`            | CursorPosition \| null | Yes      | User’s cursor position on their screen.                                                                     |
+| `isReadOnly`          | boolean          | Yes      | Indicates if user is readonly.                                                                                    |
+| `isAnonymous`         | boolean          | Yes      | Indicates if user is anonymous and can only view comments.                                                        |
+| `pageInfo`            | PageInfo         | No       | Information about the page the user is on.                                                                        |
+

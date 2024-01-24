@@ -1,0 +1,159 @@
+---
+title: "Display Metadata"
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+<Tabs>
+<Tab title="React / Next.js">
+
+<Steps titleSize="h2">
+<Step title="Comment index">
+Whether comment index is enabled.
+
+`Default: false`
+
+This appears in the comment sidebar and on the comment pins. When this is on, we show a small icon indicating the comment index in the order of creation date. This enables users to find and navigate to the desired comment quickly.
+
+```js
+<VeltComments commentIndex={true} />
+````
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableCommentIndex();
+commentElement.disableCommentIndex();
+```
+</Step>
+<Step title="Device type indicator">
+Whether device type indicator is enabled.
+
+`Default: false`
+
+When this is on, we show a small device type icon indicating which device the comment was created on. This is useful especially for design tools, where additional context is needed for debugging issues.
+
+
+```js
+<VeltComments deviceInfo={true} />
+````
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableDeviceInfo();
+commentElement.disableDeviceInfo();
+```
+
+</Step>
+</Steps>
+
+</Tab>
+
+<Tab title="HTML">
+
+<Steps titleSize="h2">
+<Step title="Comment index">
+Whether comment index is enabled.
+
+`Default: false`
+
+This appears in the comment sidebar and on the comment pins. When this is on, we show a small icon indicating the comment index in the order of creation date. This enables users to find and navigate to the desired comment quickly.
+
+```js
+<velt-comments comment-index="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableCommentIndex();
+commentElement.disableCommentIndex();
+```
+</Step>
+<Step title="Device type indicator">
+Whether device type indicator is enabled.
+
+`Default: false`
+
+When this is on, we show a small device type icon indicating which device the comment was created on. This is useful especially for design tools, where additional context is needed for debugging issues.
+
+
+```js
+<velt-comments device-info="true"></velt-comments>
+
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableDeviceInfo();
+commentElement.disableDeviceInfo();
+```
+
+</Step>
+</Steps>
+
+</Tab>
+
+</Tabs>
+
+<RequestExample>
+
+```jsx React / Next.js
+
+import { VeltComments, useVeltClient } from '@veltdev/react';
+
+import { useEffect } from 'react'
+
+export default function YourDocument() {
+  const { client } = useVeltClient();
+
+  useEffect(()=>{
+    if(client){
+      const commentElement = client.getCommentElement();
+      commentElement.enableCommentIndex(); // 1 
+      commentElement.disableCommentIndex(); // 1
+      commentElement.enableDeviceInfo(); // 2 
+      commentElement.disableDeviceInfo(); // 2
+    }
+
+  })
+
+  return (
+    <div>
+        <VeltComments  
+            commentIndex={true} {/* 1 */}
+            deviceInfo={true}  {/* 2 */}
+        />
+    </div>
+  )
+}
+```
+```js HTML
+<body>
+<velt-comments 
+  comment-index="true" 
+  device-info="true">
+</velt-comments>
+
+<script>
+if(Velt){
+    const commentElement = Velt.getCommentElement();
+    commentElement.enableCommentIndex(); // 1 
+    commentElement.disableCommentIndex(); // 1
+    commentElement.enableDeviceInfo(); // 2 
+    commentElement.disableDeviceInfo(); // 2
+  }
+</script>
+</body>
+
+```
+
+
+</RequestExample>

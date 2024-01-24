@@ -1,0 +1,171 @@
+---
+title: "API"
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+<Tabs>
+  <Tab title="React">
+## 1) Get the Velt client
+Import the useVeltClient React hook.
+
+You can use this hook within your component to fetch the Velt client.
+
+## 2) Create a useEffect hook
+
+Create an effect with the client as a dependency.
+
+Make sure to check if the client is null or undefined before you use it.
+
+## 3 )Start following a user
+
+Start following a user by passing in their user ID.
+
+You can programatically start a flock session by passing in the user ID of the user you want to lead the session.
+
+## 4 )Stop following
+
+Stop flock session for the current user.
+
+If the current user is in a flock session, they will be removed from that session. If there are no more followers in the session, the session will be destroyed.
+
+  </Tab>
+  <Tab title="Next.js">
+## 1) Get the Velt client
+Import the useVeltClient React hook.
+
+You can use this hook within your component to fetch the Velt client.
+
+## 2) Create a useEffect hook
+
+Create an effect with the client as a dependency.
+
+Make sure to check if the client is null or undefined before you use it.
+
+## 3 )Start following a user
+
+Start following a user by passing in their user ID.
+
+You can programatically start a flock session by passing in the user ID of the user you want to lead the session.
+
+## 4 )Stop following
+
+Stop flock session for the current user.
+
+If the current user is in a flock session, they will be removed from that session. If there are no more followers in the session, the session will be destroyed.
+
+  </Tab>
+    <Tab title="HTML">
+    
+## 1 )Get an instance of the presence element
+Fetch the presence element from the Velt client.
+At this point, the Velt instance should be loaded and available to you on the window object.
+
+## 2) Start following a user
+
+Start following a user by passing in their user ID.
+You can programatically start a flock session by passing in the user ID of the user leading the session.
+
+## 3) Stop following
+
+Stop following.
+
+If the current user is in a flock session, they will be removed from that session. If there are no more followers in the session, the session will be destroyed.
+
+  </Tab>
+</Tabs>
+
+<RequestExample>
+
+```java React
+import { VeltPresence, useVeltClient } from '@veltdev/react';
+import { useEffect } from 'react';
+
+export default function App() {
+
+  const { client } = useVeltClient();
+
+  useEffect(() => {
+    if (client) {
+
+      const presenceElement = client.getPresenceElement();
+
+      // Pass in the user ID of the user you want to follow
+      presenceElement.startFollowingUser(userId);
+
+      // Stop following the user
+      presenceElement.stopFollowingUser();
+
+    }
+  }, [client]);
+
+  return (
+    <div className="toolbar">
+      <VeltPresence
+        flockMode={true}
+      />
+    </div>
+  );
+}
+```
+
+```java Next.js
+import { VeltPresence, useVeltClient } from '@veltdev/react';
+import { useEffect } from 'react';
+
+export default function App() {
+
+  const { client } = useVeltClient();
+
+  useEffect(() => {
+    if (client) {
+
+      const presenceElement = client.getPresenceElement();
+
+      // Pass in the user ID of the user you want to follow
+      presenceElement.startFollowingUser(userId);
+
+      // Stop following the user
+      presenceElement.stopFollowingUser();
+
+    }
+  }, [client]);
+
+  return (
+    <div className="toolbar">
+      <VeltPresence
+        flockMode={true}
+      />
+    </div>
+  );
+}
+```
+
+```html HTML
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Flock mode documentation</title>
+  </head>
+  <body>
+    <script>
+      if (window.Velt) {
+        const presenceElement = window.Velt.getPresenceElement();
+
+        // Pass in the user ID of the user you want to follow
+        presenceElement.startFollowingUser(userId);
+
+        // Stop following the user
+        presenceElement.stopFollowingUser();
+      }
+    </script>
+
+    <div class="toolbar">
+      <snippyly-presence flock-mode="true"></snippyly-presence>
+    </div>
+  </body>
+</html>
+```
+
+</RequestExample>

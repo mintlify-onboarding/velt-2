@@ -1,0 +1,165 @@
+---
+title: "Velt Recorder Control Panel"
+---
+
+
+<Tabs>
+
+<Tab title="React / Next.js">
+
+<Steps>
+
+<Step title="Floating Mode vs. Thread Mode">
+
+The `VeltRecorderControlPanel` can be configured in either `Floating` mode or `Thread` mode. 
+
+`Default: "floating"`
+
+
+<Frame>
+![](https://files.readme.io/38580c5-Frame_8253.png)
+</Frame>
+
+Floating mode will show a preview in the bottom left of the page, no matter where you put the component.
+
+Thread mode will show the component wherever it is placed.
+
+To configure the mode, set the `mode` attribute to `floating` or `thread`:
+
+```js
+<VeltRecorderControlPanel mode="floating" />
+<VeltRecorderControlPanel mode="thread" />
+```
+
+
+</Step>
+
+<Step title="onRecordedData callback">
+
+Whenever a recording is created, the `VeltRecorderControlPanel` component emits a callback event called `onRecordedData` with data from the `VeltRecorderPlayer` that was used to create the recording.
+
+This is the response object that you get back:
+
+| Field    | Type                          | Example                                                                            |
+| -------- | ------------------------------| -----------------------------------------------------------------------------------|
+| id       | string                        | "recorder_id"                                                                      |
+| tag       | string                        | `<snippyly-recorder-player recorder-id=\"RECORDER_ID\"></snippyly-recorder-player>` |
+
+```js
+import { VeltRecorderControlPanel } from '@veltdev/react'
+
+const SomeComponent = () => {
+
+    const onRecordedData = (id,tag) => {
+        console.log(id,tag)
+    }
+    return (
+    	//... rest of the component code...
+      <VeltRecorderControlPanel mode="thread" onRecordedData={onRecordedData} />
+
+      //... rest of the component code...
+    )
+}
+
+export default SomeComponent;
+
+```
+</Step>
+
+</Steps>
+
+</Tab>
+
+
+<Tab title="HTML">
+
+<Steps>
+
+<Step title="Floating Mode vs. Thread Mode">
+
+The `<velt-recorder-control-panel>` can be configured in either `Floating` mode or `Thread` mode. 
+
+`Default: "floating"`
+
+
+<Frame>
+![](https://files.readme.io/38580c5-Frame_8253.png)
+</Frame>
+
+Floating mode will show a preview in the bottom left of the page, no matter where you put the component.
+
+Thread mode will show the component wherever it is placed.
+
+To configure the mode, set the `mode` attribute to `floating` or `thread`:
+
+```js
+<velt-recorder-control-panel mode="floating"></velt-recorder-control-panel>
+<velt-recorder-control-panel mode="thread"></velt-recorder-control-panel>
+```
+
+
+</Step>
+
+<Step title="onRecordedData callback">
+
+Whenever a recording is created, the `<velt-recorder-control-panel>` component emits a callback event called `onRecordedData` with data from the `<velt-recorder-player>` that was used to create the recording. 
+
+This is the response object that you get back:
+
+| Field    | Type                          | Example                                                                            |
+| -------- | ------------------------------| -----------------------------------------------------------------------------------|
+| id       | string                        | "recorder_id"                                                                      |
+| tag       | string                        | `<snippyly-recorder-player recorder-id=\"RECORDER_ID\"></snippyly-recorder-player>` |
+
+```jsx
+const recorderControlPanel = document.querySelector('velt-recorder-control-panel');
+recorderControlPanel?.addEventListener('onRecordedData', (s) => {
+    console.log('onRecordedData', s.detail);
+});
+```
+
+</Step>
+
+</Steps>
+
+</Tab>
+
+
+</Tabs>
+
+
+
+<RequestExample>
+
+```jsx React / Next.js
+
+import { VeltRecorderControlPanel } from '@veltdev/react'
+
+const SomeComponent = () => {
+
+    const onRecordedData = (id,tag) => {
+        console.log(id,tag)
+    }
+    return (
+        <div>
+            <VeltRecorderControlPanel mode="thread" onRecordedData={onRecordedData} />
+        </div>
+    )
+}
+
+export default SomeComponent;
+```
+
+```html HTML
+<body>
+    <velt-recorder-control-panel mode="thread"></velt-recorder-control-panel>
+  <script>
+    const recorderControlPanel = document.querySelector('velt-recorder-control-panel');
+    recorderControlPanel?.addEventListener('onRecordedData', (s) => {
+        console.log('onRecordedData', s.detail);
+    });
+  </script>
+</body>   
+```
+
+</RequestExample>
