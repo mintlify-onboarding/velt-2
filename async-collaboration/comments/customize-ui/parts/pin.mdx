@@ -1,0 +1,42 @@
+<Steps titleSize="h2">
+
+<Step title="Select the part you want to modify">
+We offer several parts which can be used like classes. Full list below.
+The component is encapsulated in Shadow DOM, which is isolated from the normal DOM.
+
+</Step>
+
+<Step title="Apply your CSS rules">
+Set whatever CSS rules you want.
+The part lets you target a specific element within a Shadow DOM.
+</Step>
+
+<Step title="Check out the table below">
+Reference the table below to see what parts we expose.
+Alternatively, you can directly inspect the component HTML to see what parts are available.
+
+| property | description |
+|---|---|
+| `comment-pin-bubble` | Targets bubble comment pin container |
+| `comment-pin-popover` | Targets the popover comment pin container |
+| `comment-pin` | Targets the default comment pin container |
+| `index-container` | Targets the comment pin index label container |
+| `index-span` | Targets comment pin index label |
+| `lock-container` | Targets the comment pin internal lock container |
+| `lock-icon` | Targets the comment pin internal lock icon |
+
+</Step>
+
+</Steps>
+
+<RequestExample>
+```css Pin
+snippyly-comment-pin::part(lock-icon) {
+  width: 0.8rem;
+  height: 0.8rem;
+  color: grey;
+}
+```
+
+
+</RequestExample>

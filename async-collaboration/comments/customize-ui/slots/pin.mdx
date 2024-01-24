@@ -1,0 +1,174 @@
+---
+title: "Pin"
+---
+<Tabs>
+  <Tab title="React / Next.js">
+<Steps titleSize="h2">
+
+<Step title='Replace the Comment Pin'>
+Provide a template for the Comment Pin.
+
+Target the `comment-pin` slot in order to replace comment pins on the screen.
+
+```js
+<VeltComments>
+  {/* target the `comment-pin` slot in order to replace comment pins on the screen */}
+  <div id="comment-pin" slot="comment-pin">
+  </div>
+</VeltComments>
+```
+</Step>
+
+<Step title='Bind data to the element style'>
+Use data attributes to bind information like the comment status or priority color.
+
+Set the style property target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+
+```js
+<VeltComments>
+  <div id="comment-pin" slot="comment-pin">
+    <img 
+      data-velt-priority-color="border-color" 
+      data-velt-avatar-color="background-color" 
+      {/* use data attributes to bind styling */}
+    />
+  </div>
+</VeltComments>
+```
+</Step>
+
+<Step title='Bind data to an element attribute'>
+Use data attributes to bind information like the user's avatar `src`, the comment thread length, etc.
+
+  Set the attribute target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+
+```js
+<VeltComments>
+  <div id="comment-pin" slot="comment-pin">
+    <img 
+      data-velt-avatar-img="src" {/* use data atributes to bind information */}
+      data-velt-priority-color="border-color" 
+      data-velt-avatar-color="background-color" 
+    />
+  </div>
+</VeltComments>
+```
+</Step>
+
+</Steps>
+
+
+     
+</Tab>
+
+
+  <Tab title="HTML">
+
+<Steps titleSize="h2">
+
+<Step title="Replace the Comment Pin">
+Provide a template for the Comment Pin.
+  
+Target the `comment-pin` slot in order to replace comment pins on the screen.
+
+```html
+<velt-comments>
+  <!-- target the `comment-pin` slot in order to replace comment pins on the screen -->
+  <div id="comment-pin" slot="comment-pin">
+  </div>
+</velt-comments>
+```
+</Step>
+
+<Step title="Bind data to the element style">
+Use data attributes to bind information like the comment status or priority color.
+
+Set the style property target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+```html
+<velt-comments>
+  <div id="comment-pin" slot="comment-pin">
+    <img 
+      data-velt-priority-color="border-color" 
+      data-velt-avatar-color="background-color" <!-- use data attribute to bind styling -->
+    />
+  </div>
+</velt-comments>
+```
+</Step>
+
+<Step title="Bind data to an element attribute">
+Use data attributes to bind information like the user's avatar src, the comment thread length, etc.
+
+Set the attribute target as the value of the data attribute. If you don't provide one, we'll make our best guess.
+```html
+<velt-comments>
+  <div id="comment-pin" slot="comment-pin">
+    <img 
+      data-velt-avatar-img="src" <!-- use data attribute to bind information -->
+      data-velt-priority-color="border-color" 
+      data-velt-avatar-color="background-color" 
+    />
+  </div>
+</velt-comments>
+```
+
+</Step>
+
+</Steps>
+
+
+    
+  </Tab>
+</Tabs>
+
+<RequestExample>
+
+```js React / Next.js
+import { 
+  VeltProvider, 
+  VeltComments
+} from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <VeltProvider apiKey="API_KEY">
+
+      <VeltComments>
+        <div id="comment-pin" slot="comment-pin">
+          <img 
+            data-velt-avatar-img="src"
+            data-velt-priority-color="border-color" 
+            data-velt-avatar-color="background-color" 
+          />
+        </div>
+      </VeltComments>
+
+    </VeltProvider>
+  );
+}
+```
+
+
+```html HTML
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Comment documentation</title>
+  </head>
+  <body>
+    <velt-comments>
+      <div id="comment-pin" slot="comment-pin">
+        <img 
+          data-velt-avatar-img="src"
+          data-velt-priority-color="border-color" 
+          data-velt-avatar-color="background-color" 
+        />
+      </div>
+    </velt-comments>
+
+  </body>
+</html>
+```
+
+</RequestExample>

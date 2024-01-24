@@ -1,0 +1,29 @@
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+## `User` Class Properties
+
+| Property        | Type           | Optional | Description                                                                                         |
+|-----------------|----------------|----------|-----------------------------------------------------------------------------------------------------|
+| `userId`          | String         | No       | Unique identifier used to identify your user.                                                       |
+| `name`            | String         | Yes      | The user's full name. Defaults to a random avatar name if not provided.                             |
+| `photoUrl`        | String         | Yes      | URL for the user's display picture. Defaults to a random avatar image if not provided.              |
+| `email`           | String         | Yes      | Required for sending email or Slack notifications related to comments and tags.                     |
+| `contacts`        | `UserContact[]`  | Yes      | A list of user contacts, used to show a dropdown for tagging in comments.                           |
+| `plan`            | String         | Yes      | The product plan the user is on.                                                                    |
+| `groupId`         | String         | Yes      | An identifier used to cluster groups of users, such as a domain name.                               |
+| `userSnippylyId`  | String         | Yes      | An auto-generated unique ID linked with your app's user ID for internal processing.                 |
+| `color`           | String         | Yes      | A randomly assigned color for the user's session, used for avatar borders and live cursor.          |
+| `type`            | String         | Yes      | The user's type.                                                                                    |
+| `isAdmin`         | Boolean        | Yes      | Indicates if the user has admin privileges.                                                         |
+| `isReadOnly`      | Boolean        | Yes      | If true, the user has read-only access.                                                             |
+| `isAnonymous`     | Boolean        | Yes      | Anonymous users can only view comments.                                                             |
+| `isGuest`         | Boolean        | Yes      | Indicates if the user is a guest.                                                                   |
+
+## `UserOptions` Class Properties
+
+| Property        | Type    | Optional | Description                                                                      |
+|-----------------|---------|----------|----------------------------------------------------------------------------------|
+| `replaceContacts` | Boolean | Yes      | If set, it replaces both personal and group contacts of the user with new ones.  |
+

@@ -1,0 +1,68 @@
+// @ts-nocheck
+import { Observable } from "rxjs";
+import { TagPinAnnotation } from "../data/tag-annotation.data.model";
+export declare class TagElement {
+    /**
+     * Subscribe to tags on the current document.
+     * 
+     * Returns Observable<TagPinAnnotation[] | null>.
+     */
+    getAllTagAnnotations: (documentId?: string, documentParams?: object) => Observable<TagPinAnnotation[] | null>;
+
+    /**
+     * To delete selected tags
+     */
+    deleteTag: () => any;
+
+    /**
+     * To allow text selection in specific elements only
+     * @param elementIds Element ids to be allowed
+     */
+    allowedElementIds: (elementIds: string[]) => any;
+
+    /**
+     * To add tags on specific elements
+     * 
+     * @param elementId ID of html element
+     */
+    attachTag: (elementId: string) => any;
+
+    /**
+     * Subscribe to add tag mode change.
+     * 
+     * Returns Observable<boolean>.
+     */
+    addTagModeChange: () => Observable<boolean>;
+    constructor();
+    /**
+     * Subscribe to tags on the current document.
+     * 
+     * Returns Observable<TagPinAnnotation[] | null>.
+     */
+    private _getAllTagAnnotations;
+
+    /**
+     * To delete selected tags
+     */
+    private _deleteTag;
+
+    /**
+     * To allow text selection in specific elements only
+     * @param elementIds Element ids to be allowed
+     */
+    private _allowedElementIds;
+
+    /**
+     * To add tags on specific elements
+     * 
+     * @param elementId ID of html element
+     */
+    private _attachTag;
+
+    /**
+     * Subscribe to add tag mode change.
+     * 
+     * Returns Observable<boolean>.
+     */
+    private _addTagModeChange;
+}

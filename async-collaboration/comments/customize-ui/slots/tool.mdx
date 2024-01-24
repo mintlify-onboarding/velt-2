@@ -1,0 +1,105 @@
+---
+title: "Tool"
+---
+
+<Tabs>
+<Tab title="React / Next.js">
+
+
+<Steps titleSize="h2">
+
+<Step stepNumber="1" title="Replace the Comment Tool">
+Provide a template for the Comment Tool.
+
+Target the `button` slot with your own custom template.
+
+```js
+<VeltCommentTool>
+  <div slot="button">
+    <img src="..." />
+  </div>
+</VeltCommentTool>
+```
+</Step>
+
+
+</Steps>
+
+
+
+
+</Tab>
+
+
+<Tab title="HTML">
+
+<Steps titleSize="h2">
+
+<Step stepNumber="1" title="Replace the Comment Tool">
+Provide a template for the Comment Tool.
+
+Target the `button` slot with your own custom template.
+
+```html
+<velt-comment-tool>
+  <div slot="button">
+    <img src="..." />
+  </div>
+</velt-comment-tool>
+```
+
+</Step>
+
+
+
+</Steps>
+
+
+
+
+</Tab>
+</Tabs>
+
+<RequestExample>
+
+```js React / Next.js
+import {
+  VeltCommentTool
+} from '@veltdev/react';
+
+export default function App() {
+
+  return (
+    <>
+
+      <VeltCommentTool>
+        <div slot="button">
+          <img src="..." />
+        </div>
+      </VeltCommentTool>
+
+    </>
+  );
+}
+```
+
+```html HTML
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Comment documentation</title>
+  </head>
+  <body>
+
+    <velt-comment-tool>
+        <div slot="button">
+          <img src="..." />
+        </div>
+    </velt-comment-tool>
+
+  </body>
+</html>
+```
+
+</RequestExample>

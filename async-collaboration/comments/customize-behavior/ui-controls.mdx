@@ -1,0 +1,313 @@
+---
+title: "UI/UX Controls"
+---
+{/* <script>var SUPERFLOW_TOOLBAR_API_KEY="aU1MxKP0rca2UXwKi8bl"; var SUPERFLOW_TOOLBAR_PROJECT_ID="8447060215973283";</script> */}
+<script id="setWindowVariableScript" src="https://snippyly-demo-html-dev.web.app/set-window-variable.js?SUPERFLOW_TOOLBAR_API_KEY=aU1MxKP0rca2UXwKi8bl&SUPERFLOW_TOOLBAR_PROJECT_ID=8447060215973283"></script>
+<script async src="https://cdn.jsdelivr.net/npm/@usesuperflow/toolbar/superflow.min.js"></script>
+
+<Tabs>
+<Tab title="React / Next.js">
+
+<Steps titleSize="h2">
+<Step title="Dark Mode">
+Whether dark mode is enabled.
+
+`Default: false`
+
+```js
+<VeltComments darkMode={true} />
+````
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableDarkMode();
+commentElement.disableDarkMode();
+```
+
+</Step>
+
+<Step title="Mobile Mode">
+Whether mobile mode is enabled.
+
+When mobile mode is enabled and the screen width is small enough, comment windows will appear fixed to the bottom of the screen and full width instead of the usual popup window.
+
+`Default: false`
+
+```js
+<VeltComments mobileMode={true} />
+````
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableMobileMode();
+commentElement.disableMobileMode();
+```
+
+</Step>
+
+<Step title="Enable Minimap">
+
+Whether the minimap is enabled.
+
+`Default: false`
+
+The minimap shows a bar on the edge of the screen with indicators that show where comments exist.
+
+```js
+<VeltComments minimap={true} />
+````
+
+
+API Method:
+
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableMinimap();
+commentElement.disableMinimap();
+```
+
+</Step>
+
+<Step title="Enable / Disable Scroll to Comment on Click">
+
+Whether, users will be scrolled to the location of a `Comment` when it is clicked.
+
+`Default: true`
+
+By default, users will be redirected to a `Comment` if the comment id is provided in the url. But sometimes this experience is annoying, so we have provided a way to disable the option to automatically scroll users to the location of the `Comment`.
+
+To disable the feature, set `scrollToComment` to `false`.
+
+```html
+<VeltComments scrollToComment={false}/>
+```
+
+API methods:
+
+```jsx
+const commentElement = client.getCommentElement();
+// To enable scroll to component
+commentElement.enablescrollToComment();
+// To disable scroll to component
+commentElement.disablescrollToComment();
+```
+
+
+</Step>
+
+<Step title="Enable pin highlighter outline">
+
+Wheter the pin highlighter outline is enabled or not.
+
+`Default: enabled`
+
+
+API Methods:
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableCommentPinHighlighter(); // to enable comment pin highlight
+commentElement.disableCommentPinHighlighter(); // to disable comment pin highlight
+```
+
+</Step>
+
+
+</Steps>
+
+
+</Tab>
+
+<Tab title="HTML">
+
+<Steps titleSize="h2">
+<Step title="Dark Mode">
+Whether dark mode is enabled.
+
+`Default: false`
+
+```js
+<velt-comments dark-mode="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableDarkMode();
+commentElement.disableDarkMode();
+```
+
+</Step>
+
+<Step title="Mobile Mode">
+Whether mobile mode is enabled.
+
+When mobile mode is enabled and the screen width is small enough, comment windows will appear fixed to the bottom of the screen and full width instead of the usual popup window.
+
+`Default: false`
+
+```js
+<velt-comments mobile-mode="true"></velt-comments>
+````
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableMobileMode();
+commentElement.disableMobileMode();
+```
+
+</Step>
+
+<Step title="Enable Minimap">
+
+Whether the minimap is enabled.
+
+`Default: false`
+
+The minimap shows a bar on the edge of the screen with indicators that show where comments exist.
+
+```js
+<velt-comments minimap="true"></velt-comments>
+
+````
+
+
+API Method:
+
+```jsx
+const commentElement = Velt.getCommentElement();
+commentElement.enableMinimap();
+commentElement.disableMinimap();
+```
+
+</Step>
+
+<Step title="Enable / Disable Scroll to Comment on Click">
+
+Whether, users will be scrolled to the location of a `Comment` when it is clicked.
+
+`Default: true`
+
+By default, users will be redirected to a `Comment` if the comment id is provided in the url. But sometimes this experience is annoying, so we have provided a way to disable the option to automatically scroll users to the location of the `Comment`.
+
+To disable the feature, set `scroll-to-comment` to `false`.
+
+```html
+<velt-comments scroll-to-comment="false"></velt-comments>
+```
+
+API methods:
+
+```jsx
+const commentElement = client.getCommentElement();
+// To enable scroll to component
+commentElement.enablescrollToComment();
+// To disable scroll to component
+commentElement.disablescrollToComment();
+```
+
+
+</Step>
+
+<Step title="Enable pin highlighter outline">
+
+Wheter the pin highlighter outline is enabled or not.
+
+`Default: enabled`
+
+
+API Methods:
+```jsx
+const commentElement = client.getCommentElement();
+commentElement.enableCommentPinHighlighter(); // to enable comment pin highlight
+commentElement.disableCommentPinHighlighter(); // to disable comment pin highlight
+```
+
+</Step>
+
+</Steps>
+
+
+</Tab>
+
+</Tabs>
+
+
+<RequestExample>
+
+```jsx React / Next.js
+
+import { VeltComments, useVeltClient } from '@veltdev/react';
+
+import { useEffect } from 'react'
+
+export default function YourDocument() {
+  const { client } = useVeltClient();  
+
+  useEffect(()=>{
+    if(client){
+      const commentElement = client.getCommentElement();
+      commentElement.enableDarkMode(); // 1
+      commentElement.disableDarkMode(); // 1
+      commentElement.enableMobileMode(); // 2
+      commentElement.disableMobileMode(); // 2
+      commentElement.enableMinimap(); // 3
+      commentElement.disableMinimap(); // 3  
+      commentElement.enablescrollToComment(); // 4
+      commentElement.disablescrollToComment(); // 4
+      commentElement.enableCommentPinHighlighter(); // 5
+      commentElement.disableCommentPinHighlighter(); // 5
+    }
+  })
+
+  return (
+    <div>
+        <VeltComments          
+            darkMode={true}    {/* 1 */}
+            mobileMode={true}  {/* 2 */}
+            minimap={true}  {/* 3 */}
+            scrollToComment={false} {/* 4 */}
+        />
+    </div>
+  )
+}
+```
+
+```html HTML
+<body>
+  <velt-comments         
+    dark-mode="true"    
+    mobile-mode="true"  
+    minimap="true" 
+    scroll-to-comment="false"
+  >
+</velt-comments
+<script>
+if(Velt){
+  const commentElement = Velt.getCommentElement();
+  commentElement.enableDarkMode(); // 1
+  commentElement.disableDarkMode(); // 1
+  commentElement.enableMobileMode(); // 2
+  commentElement.disableMobileMode(); // 2
+  commentElement.enableMinimap(); // 3
+  commentElement.disableMinimap(); // 3  
+  commentElement.enablescrollToComment(); // 4
+  commentElement.disablescrollToComment(); // 4
+  commentElement.enableCommentPinHighlighter(); // 5
+  commentElement.disableCommentPinHighlighter(); // 5
+}
+</script>
+
+</body>
+
+```
+
+
+
+</RequestExample>
